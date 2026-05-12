@@ -9,17 +9,6 @@ import "./CollectionsPage.css";
 
 const PAGE_SIZE = 24;
 
-function PriceLabel({ value }) {
-  const n = Number(value);
-  const active = "$".repeat(n);
-  const faded = "$$$$$".slice(n);
-  return (
-    <>
-      <strong>{active}</strong>
-      <span style={{ opacity: 0.3 }}>{faded}</span>
-    </>
-  );
-}
 
 export default function CollectionsPage() {
   const { restaurants, collections, locations, loaded } = useStore();
@@ -269,7 +258,7 @@ export default function CollectionsPage() {
                       checked={prices.includes(String(p.value))}
                       onChange={() => toggleFilter("price", String(p.value))}
                     />
-                    <PriceLabel value={p.value} />
+                    {p.label}
                   </label>
                 ))}
               </div>

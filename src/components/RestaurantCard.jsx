@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 import posthog from "posthog-js";
 
-const PRICE_SYMBOLS = { 1: "$", 2: "$$", 3: "$$$", 4: "$$$$", 5: "$$$$$" };
+const PRICE_LABELS = {
+  1: "< 200.000 VND/người",
+  2: "200.000 - 300.000 VND/người",
+  3: "300.000 - 400.000 VND/người",
+  4: "400.000 - 500.000 VND/người",
+  5: "> 500.000 VND/người",
+};
 
 export default function RestaurantCard({ restaurant, section = "unknown" }) {
   const r = restaurant;
-  const priceStr = PRICE_SYMBOLS[r.price_range] || "";
-  const priceRest = "$$$$$".slice(priceStr.length);
+  const priceLabel = PRICE_LABELS[r.price_range] || "";
 
   const trackClick = () =>
     posthog.capture("restaurant_card_click", {
@@ -23,61 +28,58 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
         </Link>
       </div>
       <div className="product-item-info">
-          <div className="product-title">
-            <Link to={`/products/${r.handle}`} onClick={trackClick}>
-              {r.title}
-            </Link>
-          </div>
-          <div className="tag-location">{r.address}</div>
-          <div className="product-detail-type">
-            <div className="product-type">
-              {r.cuisine_all?.slice(0, 2).map((c) => (
-                <span key={c}>
-                  <Link to={`/collections?cuisine=${encodeURIComponent(c)}`}>
-                    {c}
-                  </Link>
-                </span>
-              ))}
-            </div>
-            <div className="product-type-ver2">
-              {r.service_type && (
-                <span>
-                  <Link
-                    to={`/collections?service=${encodeURIComponent(r.service_type)}`}
-                  >
-                    {r.service_type}
-                  </Link>
-                </span>
-              )}
-            </div>
-          </div>
-          <div className="product-price">
-            <div className="product-price-content">
-              <strong>{priceStr}</strong>
-              <span style={{ opacity: 0.3 }}>{priceRest}</span>
-            </div>
-          </div>
-          {r.discount && r.discount_details && (
-            <div className="textUudai">{r.discount_details}</div>
-          )}
-          {r.status && (
-            <div className="product-type-2">
-              <span className="custom_tag status-tag">{r.status}</span>
-            </div>
-          )}
+        <div className="product-title">
+          <Link to={`/products/${r.handle}`} onClick={trackClick}>
+            {r.title}
+          </Link>
         </div>
-      {/* <div className="buy-now-product">
-        <Link
-          className="btn-booking"
-          to={`/products/${r.handle}`}
-          target="_blank"
-          onClick={() =>
-            posthog.capture("card_cta_click", { restaurant_handle: r.handle })
-          }
-        >
-          Đặt chỗ ngay
-        </Link>
-      </div>*/}
+        <div className="tag-location">{r.address}</div>
+        <div className="product-detail-type">
+          <div className="product-type">
+            {r.cuisine_all?.slice(0, 2).map((c) => (
+              <span key={c}>
+                <Link to={`/collections?cuisine=${encodeURIComponent(c)}`}>
+                  {c}
+                </Link>
+              </span>
+            ))}
+          </div>
+          <div className="product-type-ver2">
+            {r.service_type && (
+              <span>
+                <Link
+                  to={`/collections?service=${encodeURIComponent(r.service_type)}`}
+                >
+                  {r.service_type}
+                </Link>
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="product-price">
+          <div className="product-price-content">
+            <strong>{priceLabel}</strong>
+          </div>
+        </div>
+        <div className="textUudai">
+          {r.discount && r.discount_details ? r.discount_details : ""}
+        </div>
+        <div className="product-status-row">
+          {r.status && (
+            <span className="custom_tag status-tag">{r.status}</span>
+          )}
+          <Link
+            className="btn-booking"
+            to={`/products/${r.handle}`}
+            target="_blank"
+            onClick={() =>
+              posthog.capture("card_cta_click", { restaurant_handle: r.handle })
+            }
+          >
+            Đặt ngay
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

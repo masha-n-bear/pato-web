@@ -27,11 +27,11 @@
   ],
   "service_type": ["Gọi món", "Buffet và Gọi món", "Buffet"],
   "price_range": [
-    { "value": 1, "label": "Dưới 200.000vnđ" },
-    { "value": 2, "label": "Từ 200.000vnđ đến 300.000vnđ" },
-    { "value": 3, "label": "Từ 300.000vnđ đến 400.000vnđ" },
-    { "value": 4, "label": "Từ 400.000vnđ đến 500.000vnđ" },
-    { "value": 5, "label": "Trên 500.000vnđ" }
+    { "value": 1, "label": "< 200.000 VND/người" },
+    { "value": 2, "label": "200.000 - 300.000 VND/người" },
+    { "value": 3, "label": "300.000 - 400.000 VND/người" },
+    { "value": 4, "label": "400.000 - 500.000 VND/người" },
+    { "value": 5, "label": "> 500.000 VND/người" }
   ],
   "status": [
     "Địa điểm đổi địa chỉ",
