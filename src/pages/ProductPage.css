@@ -1,0 +1,559 @@
+.product-page {
+    padding: 20px 0 60px;
+}
+
+/* ── Two-column layout ── */
+.product-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ── Gallery ── */
+.gallery-wrap {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.gallery-main-img {
+    flex: 4;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.gallery-main-img:hover img {
+    transform: scale(1.02);
+}
+
+.gallery-side {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.gallery-thumb-cell {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.gallery-thumb-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 80px;
+    transition: transform 0.3s;
+}
+
+.gallery-thumb-cell:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-see-all-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 6px;
+    line-height: 1.4;
+}
+
+/* ── Product header (title / address / tags) ── */
+.product-header {
+    margin-bottom: 28px;
+}
+
+.product-header h1 {
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.product-address {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.address-icon {
+    flex-shrink: 0;
+}
+
+.cuisine-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cuisine-tag {
+    background: #fff3f1;
+    color: var(--brand);
+    border: 1px solid #f5ccc7;
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ── Section headings (shared) ── */
+.product-promotions h2,
+.product-description h2,
+.product-menu h2,
+.product-map h2,
+.product-related h2 {
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--brand);
+    padding-bottom: 8px;
+}
+
+/* ── Promotions ── */
+.product-promotions {
+    margin-bottom: 32px;
+}
+
+.promo-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #fafafa;
+}
+
+.promo-body {
+    flex: 1;
+}
+
+.promo-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.promo-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.btn-promo-book {
+    display: inline-block;
+    flex-shrink: 0;
+    background: var(--brand);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.2s;
+    align-self: flex-start;
+}
+
+.btn-promo-book:hover {
+    background: var(--dark);
+    color: white;
+}
+
+/* ── Description ── */
+.product-description {
+    margin-bottom: 32px;
+}
+
+.description-text p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.description-text ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.description-text ul li {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+/* ── Menu carousel ── */
+.product-menu {
+    margin-bottom: 32px;
+}
+
+.menu-carousel-img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f5f5f5;
+    display: block;
+}
+
+/* ── Map ── */
+.product-map {
+    margin-bottom: 32px;
+}
+
+/* ── Related ── */
+.product-related {
+    margin-bottom: 32px;
+}
+
+.product-main {
+    min-width: 0;
+}
+
+/* ── Sticky sidebar ── */
+.product-sidebar {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    min-width: 0;
+    width: 360px;
+}
+
+.sidebar-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+/* Card 1: Booking */
+.sidebar-restaurant-name {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.sidebar-discount {
+    color: var(--danger);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.btn-sidebar-book {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--brand);
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    margin-bottom: 10px;
+}
+
+.btn-sidebar-book:hover {
+    background: var(--dark);
+    color: white;
+}
+
+.sidebar-phone-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.sidebar-phone-text strong {
+    font-size: 18px;
+    color: var(--dark);
+}
+
+/* Card 2: Info */
+.sidebar-section {
+    margin-bottom: 20px;
+}
+.sidebar-section:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--dark);
+    border-bottom: 2px solid var(--brand);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.hours-table {
+    width: 100%;
+    font-size: 13px;
+}
+.hours-table td {
+    padding: 4px 8px;
+}
+.hours-table tr:nth-child(even) td {
+    background: #f9f9f9;
+}
+.hours-table td:first-child {
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.info-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-row {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    align-items: flex-start;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    min-width: 80px;
+}
+
+.info-row-amenities {
+    flex-direction: column;
+    gap: 6px;
+}
+
+.amenities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.amenity-tag {
+    background: #f0f9e8;
+    color: #4a7c28;
+    border: 1px solid #c5e0a0;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 11px;
+}
+
+.status-active {
+    color: #8bc34a;
+    font-weight: 600;
+}
+
+/* ── Service amenity grid (pro-has-service) ── */
+.pro-has-service {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 8px;
+}
+
+.pro-has-service span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #ccc;
+    line-height: 1.3;
+}
+
+.pro-has-service span svg {
+    width: 16px;
+    height: 16px;
+    fill: #ccc;
+    flex-shrink: 0;
+}
+
+.pro-has-service span.active {
+    color: var(--text-primary);
+}
+
+.pro-has-service span.active svg {
+    fill: var(--text-primary);
+}
+
+/* ── Lightbox ── */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+}
+
+.lightbox-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    font-size: 48px;
+    line-height: 1;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+    z-index: 1001;
+}
+
+.lightbox-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+.lightbox-prev {
+    left: 20px;
+}
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Responsive ── */
+/* ── Mobile bottom navigation ── */
+#mobile-bottom-navigation {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .product-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+    .product-sidebar {
+        position: static;
+        width: 100%;
+    }
+    .sidebar-booking {
+        display: none;
+    }
+    .gallery-main-img {
+        aspect-ratio: 16 / 9;
+    }
+    .gallery-side {
+        grid-template-rows: unset;
+    }
+    .gallery-thumb-cell img {
+        min-height: 60px;
+    }
+    .product-page {
+        padding-bottom: 70px;
+    }
+    #mobile-bottom-navigation {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        z-index: 1000;
+        justify-content: space-around;
+        padding: 10px 0 12px;
+    }
+    #mobile-bottom-navigation button {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-wrap {
+        flex-direction: column;
+    }
+    .gallery-side {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: unset;
+        height: 80px;
+    }
+    .gallery-thumb-cell img {
+        min-height: 60px;
+        height: 80px;
+    }
+}
