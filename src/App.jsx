@@ -4,6 +4,7 @@ import posthog from 'posthog-js'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ExperimentNotice from './components/ExperimentNotice'
+import ProtectedRoute from './components/ProtectedRoute'
 import HomePage from './pages/HomePage'
 import CollectionsPage from './pages/CollectionsPage'
 import SearchPage from './pages/SearchPage'
@@ -11,7 +12,10 @@ import ProductPage from './pages/ProductPage'
 import StaticPage from './pages/StaticPage'
 import BlogListPage from './pages/BlogListPage'
 import BlogPostPage from './pages/BlogPostPage'
+import LoginPage from './pages/LoginPage'
+import SavedPage from './pages/SavedPage'
 import useStore from './store'
+import { initAuth } from './authStore'
 
 function ScrollToTop() {
   const { pathname, search } = useLocation()
@@ -30,6 +34,7 @@ function PageviewTracker() {
 export default function App() {
   const load = useStore(s => s.load)
   useEffect(() => { load() }, [load])
+  useEffect(() => { return initAuth() }, [])
 
   return (
     <>
@@ -47,6 +52,8 @@ export default function App() {
           <Route path="/pages/:handle" element={<StaticPage />} />
           <Route path="/blogs" element={<BlogListPage />} />
           <Route path="/blogs/:slug" element={<BlogPostPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/saved" element={<ProtectedRoute><SavedPage /></ProtectedRoute>} />
         </Routes>
       </main>
       <Footer />

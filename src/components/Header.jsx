@@ -1,6 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 import useStore from "../store";
+import useAuthStore from "../authStore";
+import UserMenu from "./UserMenu";
 import "./Header.css";
 
 const NAV_LINKS = [
@@ -22,6 +26,8 @@ export default function Header() {
   const searchRef = useRef(null);
   const debounceRef = useRef(null);
   const restaurants = useStore((s) => s.restaurants);
+  const user = useAuthStore((s) => s.user);
+  const authLoading = useAuthStore((s) => s.authLoading);
 
   function handleSearch(e) {
     e.preventDefault();
@@ -83,6 +89,27 @@ export default function Header() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link to="/saved" onClick={() => setMobileNavOpen(false)}>
+              🔖 Đã lưu
+            </Link>
+          </li>
+          {user ? (
+            <li>
+              <button
+                className="mobile-logout-btn"
+                onClick={() => { setMobileNavOpen(false); signOut(auth); }}
+              >
+                Đăng xuất
+              </button>
+            </li>
+          ) : (
+            <li>
+              <Link to="/login" onClick={() => setMobileNavOpen(false)}>
+                Đăng nhập
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
       {mobileNavOpen && (
@@ -157,7 +184,7 @@ export default function Header() {
                     )}
                   </div>
                 </div>
-                {/* Right: hotline */}
+                {/* Right: hotline + auth */}
                 <div className="header-right">
                   <a href="tel:19002280" className="hotline-link">
                     <svg width="18" viewBox="0 0 512 512" fill="currentColor">
@@ -165,6 +192,11 @@ export default function Header() {
                     </svg>
                     Hotline: 1900.2280
                   </a>
+                  {!authLoading && (
+                    user ? <UserMenu /> : (
+                      <Link to="/login" className="header-login-btn">Đăng nhập</Link>
+                    )
+                  )}
                 </div>
               </div>
             </div>

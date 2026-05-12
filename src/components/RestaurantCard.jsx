@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import posthog from "posthog-js";
+import SaveButton from "./SaveButton";
 
 const PRICE_LABELS = {
   1: "< 200.000 VND/người",
@@ -26,6 +27,7 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
         <Link to={`/products/${r.handle}`} onClick={trackClick}>
           <img src={r.thumbnail} alt={r.title} loading="lazy" />
         </Link>
+        <SaveButton handle={r.handle} />
       </div>
       <div className="product-item-info">
         <div className="product-title">
