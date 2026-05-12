@@ -12,7 +12,8 @@
 }
 
 .header-top {
-    background: var(--brand);
+    /*background: var(--brand);*/
+    background: var(--dark);
 }
 
 .header-top-inner {
