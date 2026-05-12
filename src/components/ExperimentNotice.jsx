@@ -2,7 +2,7 @@ import { useState } from 'react'
 import posthog from 'posthog-js'
 import './ExperimentNotice.css'
 
-const STORAGE_KEY = 'pato_experiment_ack'
+const STORAGE_KEY = 'pato_v2_experiment_ack'
 
 export default function ExperimentNotice() {
   const [visible, setVisible] = useState(() => !localStorage.getItem(STORAGE_KEY))

@@ -5,7 +5,7 @@ import posthog from "posthog-js";
 import "./index.css";
 import App from "./App.jsx";
 
-posthog.init("phc_D5q6CxVUZwGU6kkrhVjq7ZHcbjqRqV49YnSD2NSzPhUb", {
+posthog.init("phc_zQ8EaAfxRBKNbR7DnDZULxxSWtfMcBK7sUnUW4pfgQmC", {
   api_host: "https://us.i.posthog.com",
   // Pageviews fired manually in App.jsx to handle HashRouter + search-param changes correctly
   capture_pageview: false,

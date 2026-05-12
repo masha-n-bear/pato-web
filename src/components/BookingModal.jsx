@@ -38,7 +38,7 @@ export default function BookingModal({ restaurant, onClose }) {
     e.preventDefault();
     setStatus("submitting");
 
-    const endpoint = "https://script.google.com/macros/s/AKfycbzCkgaaeIgK9Xcb83MI4XIFUaSyT24q0zO3ZMpmq8W74D9irluzXTn840t8SyquFVUG/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbzNPX30oeXZABNv3Q04xciy-HegV4gJp3Ie14ynkNFLbaheGY_MXADADallmqLPOn1oTQ/exec";
 
     const payload = {
       restaurant: restaurant.title,
