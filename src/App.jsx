@@ -14,6 +14,7 @@ import BlogListPage from './pages/BlogListPage'
 import BlogPostPage from './pages/BlogPostPage'
 import LoginPage from './pages/LoginPage'
 import SavedPage from './pages/SavedPage'
+import AccountPage from './pages/AccountPage'
 import useStore from './store'
 import { initAuth } from './authStore'
 
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/blogs/:slug" element={<BlogPostPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/saved" element={<ProtectedRoute><SavedPage /></ProtectedRoute>} />
+          <Route path="/account" element={<AccountPage />} />
         </Routes>
       </main>
       <Footer />

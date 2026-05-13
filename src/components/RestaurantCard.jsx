@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import posthog from "posthog-js";
 import SaveButton from "./SaveButton";
+import { bookedTodayCount } from "../utils/hashUtils";
 
 const PRICE_LABELS = {
   1: "< 200.000 VND/người",
@@ -13,6 +14,7 @@ const PRICE_LABELS = {
 export default function RestaurantCard({ restaurant, section = "unknown" }) {
   const r = restaurant;
   const priceLabel = PRICE_LABELS[r.price_range] || "";
+  const bookedCount = bookedTodayCount(r.handle);
 
   const trackClick = () =>
     posthog.capture("restaurant_card_click", {
@@ -28,6 +30,7 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
           <img src={r.thumbnail} alt={r.title} loading="lazy" />
         </Link>
         <SaveButton handle={r.handle} />
+        <div className="card-booked-badge">🔥 Đặt {bookedCount} lần hôm nay</div>
       </div>
       <div className="product-item-info">
         <div className="product-title">
@@ -49,9 +52,7 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
           <div className="product-type-ver2">
             {r.service_type && (
               <span>
-                <Link
-                  to={`/collections?service=${encodeURIComponent(r.service_type)}`}
-                >
+                <Link to={`/collections?service=${encodeURIComponent(r.service_type)}`}>
                   {r.service_type}
                 </Link>
               </span>
@@ -67,9 +68,6 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
           {r.discount && r.discount_details ? r.discount_details : ""}
         </div>
         <div className="product-status-row">
-          {r.status && (
-            <span className="custom_tag status-tag">{r.status}</span>
-          )}
           <Link
             className="btn-booking"
             to={`/products/${r.handle}`}

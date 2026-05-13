@@ -301,3 +301,43 @@
   padding: 0 4px;
   line-height: 36px;
 }
+
+/* ── Active filter chips ── */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff3e0;
+  border: 1px solid var(--brand);
+  color: var(--brand);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.filter-chip.amenity {
+  background: #e8f4fd;
+  border-color: #2980b9;
+  color: #2980b9;
+}
+
+.filter-chip button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+

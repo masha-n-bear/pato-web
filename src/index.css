@@ -209,6 +209,22 @@ textarea {
     aspect-ratio: 4 / 3;
 }
 
+.card-booked-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.72);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 3px 8px;
+    border-radius: 20px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 2;
+}
+
 .product-img > a {
     display: block;
     height: 100%;

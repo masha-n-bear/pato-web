@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import posthog from "posthog-js";
+import useAuthStore from "../authStore";
 import "./BookingModal.css";
 
 const TIMES = Array.from({ length: 96 }, (_, i) => {
@@ -11,6 +12,9 @@ const TIMES = Array.from({ length: 96 }, (_, i) => {
 const PEOPLE = Array.from({ length: 100 }, (_, i) => `${i + 1} người`);
 
 export default function BookingModal({ restaurant, onClose }) {
+  const user = useAuthStore(s => s.user);
+  const addBooking = useAuthStore(s => s.addBooking);
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -62,6 +66,22 @@ export default function BookingModal({ restaurant, onClose }) {
         body: JSON.stringify(payload),
       });
       // no-cors means response is opaque — assume success if no throw
+      if (user) {
+        await addBooking({
+          restaurantHandle: restaurant.handle,
+          restaurantTitle: restaurant.title,
+          restaurantAddress: restaurant.address ?? '',
+          restaurantThumbnail: restaurant.thumbnail ?? '',
+          date: form.date,
+          rawDate: form.date,
+          time: form.time,
+          guests: parseInt(form.adults) || 1,
+          offer: 'Không có ưu đãi',
+          note: form.note,
+          name: form.name,
+          phone: form.phone,
+        });
+      }
       setStatus("success");
       posthog.capture("booking_submitted", {
         restaurant_handle: restaurant.handle,
@@ -93,29 +113,31 @@ export default function BookingModal({ restaurant, onClose }) {
 
         {status === "success" ? (
           <div className="booking-success">
+            <div className="booking-success-icon">✅</div>
             <h2 className="booking-success-heading">TIẾP NHẬN THÀNH CÔNG</h2>
-            <div className="booking-success-body">
-              <p>Thông tin đặt bàn của Quý khách được tiếp nhận.</p>
-              <p>
-                PATO sẽ gọi điện tới SĐT:{" "}
-                <strong>{form.phone}</strong> để xác nhận trong vòng 10 phút
-                tới. Vui lòng giữ liên lạc!
-              </p>
-              <p>
-                Đặt bàn của Quý khách được xác nhận thành công chỉ khi có cuộc
-                gọi xác nhận từ PATO.
-              </p>
-              <p>Cảm ơn Quý khách đã sử dụng dịch vụ của PATO!</p>
-              <p className="booking-success-privacy">
-                Mọi thông tin khách hàng cung cấp chỉ được sử dụng cho mục đích
-                đặt bàn, hoàn toàn không dùng cho bất kì mục đích nào khác.
-                <br />
-                Vui lòng tham khảo thêm "Chính sách bảo mật thông tin".
-              </p>
+            <p className="booking-success-sub">
+              PATO sẽ gọi xác nhận tới <strong>{form.phone}</strong> trong 10 phút tới.
+            </p>
+            <div className="booking-success-details">
+              <div className="bsd-row"><span>Nhà hàng</span><strong>{restaurant.title}</strong></div>
+              {restaurant.address && <div className="bsd-row"><span>Địa chỉ</span><strong>{restaurant.address}</strong></div>}
+              <div className="bsd-row"><span>Khách hàng</span><strong>{form.name}</strong></div>
+              <div className="bsd-row"><span>Số điện thoại</span><strong>{form.phone}</strong></div>
+              <div className="bsd-row"><span>Ngày đặt</span><strong>{form.date}</strong></div>
+              <div className="bsd-row"><span>Giờ đặt</span><strong>{form.time}</strong></div>
+              <div className="bsd-row"><span>Người lớn</span><strong>{form.adults}</strong></div>
+              {form.children && form.children !== "0" && (
+                <div className="bsd-row"><span>Trẻ em</span><strong>{form.children}</strong></div>
+              )}
+              {form.note && <div className="bsd-row"><span>Ghi chú</span><strong>{form.note}</strong></div>}
             </div>
-            <button className="btn-booking-submit" onClick={onClose}>
-              Đóng
-            </button>
+            <p className="booking-success-note">
+              Đặt bàn chỉ được xác nhận sau cuộc gọi từ PATO.
+            </p>
+            <p className="booking-success-privacy">
+              Mọi thông tin chỉ dùng cho mục đích đặt bàn.
+            </p>
+            <button className="btn-booking-submit" onClick={onClose}>Đóng</button>
           </div>
         ) : (
           <form className="booking-form" onSubmit={handleSubmit} noValidate>
