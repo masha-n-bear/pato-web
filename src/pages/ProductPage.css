@@ -15,6 +15,7 @@
     display: flex;
     gap: 8px;
     margin-bottom: 24px;
+    max-height: 500px;
 }
 
 .gallery-main-img {
@@ -550,13 +551,62 @@
     background: rgba(255, 255, 255, 0.15);
 }
 
+/* ── Mobile booking bottom sheet ── */
+.mobile-sheet-overlay {
+    display: none;
+}
+
 /* ── Responsive ── */
 /* ── Mobile bottom navigation ── */
 #mobile-bottom-navigation {
     display: none;
 }
 
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
 @media (max-width: 900px) {
+    .mobile-sheet-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1200;
+    }
+    .mobile-sheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 92vh;
+        background: #fff;
+        border-radius: 16px 16px 0 0;
+        overflow-y: auto;
+        z-index: 1201;
+        padding: 8px 16px 24px;
+        animation: slideUp 0.3s ease;
+    }
+    .mobile-sheet-handle {
+        width: 40px;
+        height: 4px;
+        background: #ddd;
+        border-radius: 2px;
+        margin: 0 auto 12px;
+    }
+    .mobile-sheet-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #666;
+        line-height: 1;
+        padding: 4px;
+    }
     .product-layout {
         grid-template-columns: minmax(0, 1fr);
         gap: 24px;

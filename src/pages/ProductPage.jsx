@@ -401,6 +401,7 @@ export default function ProductPage() {
   const { restaurants, loaded } = useStore();
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [mobileSheetOpen, setMobileSheetOpen] = useState(false);
 
   const r = loaded ? restaurants.find((rest) => rest.handle === handle) : null;
 
@@ -736,7 +737,7 @@ export default function ProductPage() {
           <svg width="22" fill="#fff" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c-140.609375 0-256 115.390625-256 256 0 46.40625 12.511719 91.582031 36.238281 131.105469l-36.238281 124.894531 124.894531-36.238281c39.523438 23.726562 84.699219 36.238281 131.105469 36.238281 140.609375 0 256-115.390625 256-256s-115.390625-256-256-256zm160.054688 364.167969-11.910157 11.910156c-16.851562 16.851563-55.605469 15.515625-80.507812 10.707031-82.800781-15.992187-179.335938-109.5625-197.953125-190.59375-9.21875-40.140625-4.128906-75.039062 9.183594-88.355468l11.910156-11.910157c6.574218-6.570312 17.253906-6.5625 23.820312 0l47.648438 47.652344c3.179687 3.179687 4.921875 7.394531 4.921875 11.90625s-1.742188 8.730469-4.921875 11.898437l-11.90625 11.921876c-13.125 13.15625-13.125 34.527343 0 47.652343l78.683594 77.648438c13.164062 13.164062 34.46875 13.179687 47.652343 0l11.910157-11.90625c6.148437-6.183594 17.632812-6.203125 23.832031 0l47.636719 47.636719c6.46875 6.441406 6.714843 17.113281 0 23.832031zm0 0"/></svg>
           <span>Gọi ngay</span>
         </button>
-        <button onClick={() => { posthog.capture("mobile_nav_book_click", { restaurant_handle: r.handle }); setBookingOpen(true); }}>
+        <button onClick={() => { posthog.capture("mobile_nav_book_click", { restaurant_handle: r.handle }); setMobileSheetOpen(true); }}>
           <svg width="22" fill="#fff" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M436 160c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-20V48c0-26.51-21.49-48-48-48H48C21.49 0 0 21.49 0 48v416c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h20c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-20v-64h20c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-20v-64h20zm-228-32c44.183 0 80 35.817 80 80s-35.817 80-80 80-80-35.817-80-80 35.817-80 80-80zm128 232c0 13.255-10.745 24-24 24H104c-13.255 0-24-10.745-24-24v-18.523c0-22.026 14.99-41.225 36.358-46.567l35.657-8.914c29.101 20.932 74.509 26.945 111.97 0l35.657 8.914C321.01 300.252 336 319.452 336 341.477V360z"/></svg>
           <span>Đặt ngay</span>
         </button>
@@ -745,6 +746,17 @@ export default function ProductPage() {
           <span>Chat ngay</span>
         </button>
       </div>
+
+      {/* Mobile booking bottom sheet */}
+      {mobileSheetOpen && (
+        <div className="mobile-sheet-overlay" onClick={() => setMobileSheetOpen(false)}>
+          <div className="mobile-sheet" onClick={e => e.stopPropagation()}>
+            <div className="mobile-sheet-handle" />
+            <button className="mobile-sheet-close" onClick={() => setMobileSheetOpen(false)}>✕</button>
+            <BookingWidget restaurant={r} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

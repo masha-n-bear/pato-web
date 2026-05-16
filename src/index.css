@@ -246,6 +246,8 @@ textarea {
 .product-item-info {
     padding: 10px 12px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-title {
@@ -337,7 +339,8 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 6px;
+    margin-top: auto;
+    padding-top: 6px;
 }
 
 .btn-booking {

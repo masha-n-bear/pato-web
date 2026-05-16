@@ -30,7 +30,6 @@ export default function BookingWidget({ restaurant }) {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [guests, setGuests] = useState(2);
-  const [selectedOffer, setSelectedOffer] = useState('');
   const [step, setStep] = useState('calendar'); // calendar | form | success
   const [form, setForm] = useState({ name: user?.displayName || '', phone: '', note: '' });
   const [status, setStatus] = useState('idle');
@@ -76,7 +75,6 @@ export default function BookingWidget({ restaurant }) {
     if (!isDateOpen(restaurant.opening_hours, dateStr)) return;
     setSelectedDate(dateStr);
     setSelectedTime('');
-    setSelectedOffer('');
   }
 
   async function handleSubmit(e) {
@@ -92,7 +90,7 @@ export default function BookingWidget({ restaurant }) {
       time: selectedTime,
       adults: `${guests} người`,
       children: '0',
-      offer: selectedOffer || '',
+      offer: '',
       note: form.note,
       submittedAt: new Date().toISOString(),
     };
@@ -114,7 +112,7 @@ export default function BookingWidget({ restaurant }) {
         rawDate: selectedDate,
         time: selectedTime,
         guests,
-        offer: selectedOffer || 'Không có ưu đãi',
+        offer: 'Không có ưu đãi',
         note: form.note,
         name: form.name,
         phone: form.phone,
@@ -253,28 +251,6 @@ export default function BookingWidget({ restaurant }) {
             </div>
           )}
 
-          {/* Offers */}
-          {selectedDate && selectedTime && restaurant.discount && restaurant.discount_details && (
-            <div className="bw-offers-section">
-              <div className="bw-section-label">Ưu đãi áp dụng</div>
-              <div className="bw-offer-note">⚠️ Ưu đãi có thể thay đổi tùy ngày, giờ và số lượng khách.</div>
-              <label className={`bw-offer-option${selectedOffer === restaurant.discount_details ? ' selected' : ''}`}>
-                <input
-                  type="radio"
-                  name="offer"
-                  value={restaurant.discount_details}
-                  checked={selectedOffer === restaurant.discount_details}
-                  onChange={() => setSelectedOffer(restaurant.discount_details)}
-                />
-                <span className="bw-offer-label">{restaurant.discount_details}</span>
-                <span className="bw-offer-tag">Ưu đãi</span>
-              </label>
-              <label className={`bw-offer-option${selectedOffer === '' ? ' selected' : ''}`}>
-                <input type="radio" name="offer" value="" checked={selectedOffer === ''} onChange={() => setSelectedOffer('')} />
-                <span className="bw-offer-label">Không áp dụng ưu đãi</span>
-              </label>
-            </div>
-          )}
 
           <div className="bw-urgency">
             Đặt ngay để giữ chỗ!
@@ -299,7 +275,6 @@ export default function BookingWidget({ restaurant }) {
             <div className="bw-sum-row"><span>Ngày</span><strong>{formatDate(selectedDate)}</strong></div>
             <div className="bw-sum-row"><span>Giờ</span><strong>{selectedTime}</strong></div>
             <div className="bw-sum-row"><span>Số khách</span><strong>{guests} người</strong></div>
-            {selectedOffer && <div className="bw-sum-row"><span>Ưu đãi</span><strong>{selectedOffer}</strong></div>}
           </div>
 
           <input

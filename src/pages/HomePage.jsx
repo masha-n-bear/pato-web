@@ -159,12 +159,14 @@ export default function HomePage() {
         const tags = r.purpose_tags || [];
         return tags.includes('Sinh nhật') || tags.includes('Tiệc công ty') || tags.includes('Tiệc ngoài trời');
       })
+      .sort(() => Math.random() - 0.5)
       .slice(0, 12);
   }, [restaurants]);
 
   const lunchRestaurants = useMemo(() => {
     return restaurants
       .filter(r => (r.purpose_tags || []).includes('Ăn gia đình'))
+      .sort(() => Math.random() - 0.5)
       .slice(0, 12);
   }, [restaurants]);
 

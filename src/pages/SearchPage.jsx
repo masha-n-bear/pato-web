@@ -70,8 +70,8 @@ export default function SearchPage() {
   const district = searchParams.get('district') || ''
   const sort = searchParams.get('sort') || 'default'
 
-  const hasFilters = q.trim() || cuisines.length || services.length || prices.length ||
-    discount || province || district || purposes.length || amenities.length
+  const hasFilters = !!(q.trim() || cuisines.length || services.length || prices.length ||
+    discount || province || district || purposes.length || amenities.length)
 
   const districts = useMemo(() => {
     if (!province) return []
