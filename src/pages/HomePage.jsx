@@ -157,13 +157,15 @@ export default function HomePage() {
     return restaurants
       .filter(r => {
         const tags = r.purpose_tags || [];
-        return tags.includes('Sinh nhật') || tags.includes('Tiệc công ty');
+        return tags.includes('Sinh nhật') || tags.includes('Tiệc công ty') || tags.includes('Tiệc ngoài trời');
       })
       .slice(0, 12);
   }, [restaurants]);
 
   const lunchRestaurants = useMemo(() => {
-    return restaurants.filter(isOpenForLunch).slice(0, 12);
+    return restaurants
+      .filter(r => (r.purpose_tags || []).includes('Ăn gia đình'))
+      .slice(0, 12);
   }, [restaurants]);
 
   function handleAdvancedSearch(e) {
@@ -333,7 +335,7 @@ export default function HomePage() {
       {!loaded ? (
         <HomeSection title="Đặt tiệc, sinh nhật, liên hoan"><SkeletonRow /></HomeSection>
       ) : partyRestaurants.length > 0 && (
-        <HomeSection title="Đặt tiệc, sinh nhật, liên hoan" viewMoreHref="/collections?purpose=Sinh+nh%E1%BA%ADt&purpose=Ti%E1%BB%87c+c%C3%B4ng+ty">
+        <HomeSection title="Đặt tiệc, sinh nhật, liên hoan" viewMoreHref="/collections?purpose=Sinh+nh%E1%BA%ADt&purpose=Ti%E1%BB%87c+c%C3%B4ng+ty&purpose=Ti%E1%BB%87c+ngo%C3%A0i+tr%E1%BB%9Di">
           <Carousel
             items={partyRestaurants}
             fixedWidth={300}
@@ -347,7 +349,7 @@ export default function HomePage() {
       {!loaded ? (
         <HomeSection title="Trưa nay ăn gì?"><SkeletonRow /></HomeSection>
       ) : lunchRestaurants.length > 0 && (
-        <HomeSection title="Trưa nay ăn gì?" viewMoreHref="/collections">
+        <HomeSection title="Trưa nay ăn gì?" viewMoreHref="/collections?purpose=%C4%82n+gia+%C4%91%C3%ACnh">
           <Carousel
             items={lunchRestaurants}
             fixedWidth={300}
