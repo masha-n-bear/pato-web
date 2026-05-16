@@ -17,7 +17,7 @@
 }
 
 html {
-    zoom: 1.25;
+    /*zoom: 1.25;*/
 }
 
 @media (max-width: 768px) {
@@ -96,7 +96,9 @@ button {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 input,
@@ -213,7 +215,7 @@ textarea {
     position: absolute;
     bottom: 8px;
     left: 8px;
-    background: rgba(0,0,0,0.72);
+    background: rgba(0, 0, 0, 0.72);
     color: #fff;
     font-size: 11px;
     font-weight: 600;
