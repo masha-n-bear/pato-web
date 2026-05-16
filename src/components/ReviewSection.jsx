@@ -115,6 +115,7 @@ export default function ReviewSection({ restaurant }) {
   const addReview = useAuthStore(s => s.addReview);
 
   const [realReviews, setRealReviews] = useState([]);
+  const [fetchError, setFetchError] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [helpfulSet, setHelpfulSet] = useState(new Set());
   const [moreOpenId, setMoreOpenId] = useState(null);
@@ -142,7 +143,10 @@ export default function ReviewSection({ restaurant }) {
         );
         const snap = await getDocs(q);
         setRealReviews(snap.docs.map(d => ({ id: d.id, ...d.data() })));
-      } catch { /* ignore */ }
+        setFetchError(false);
+      } catch {
+        setFetchError(true);
+      }
     }
     fetchReviews();
   }, [handle]);
@@ -151,20 +155,37 @@ export default function ReviewSection({ restaurant }) {
     e.preventDefault();
     if (!form.text.trim()) return;
     setSubmitting(true);
-    await addReview({
+    const ok = await addReview({
       restaurantHandle: handle,
       restaurantTitle: restaurant.title,
       ...form,
     });
-    setShowForm(false);
-    setForm({ rating: 8, foodRating: 8, serviceRating: 8, ambienceRating: 8, text: '' });
+    if (ok) {
+      // Optimistic: show the new review immediately before re-fetch
+      const optimistic = {
+        id: `optimistic-${Date.now()}`,
+        ...form,
+        restaurantHandle: handle,
+        restaurantTitle: restaurant.title,
+        userName: user.displayName || user.email?.split('@')[0] || 'Khách',
+        userPhoto: user.photoURL || null,
+        submittedAt: { toDate: () => new Date() },
+        isMock: false,
+      };
+      setRealReviews(prev => [optimistic, ...prev]);
+      setShowForm(false);
+      setForm({ rating: 8, foodRating: 8, serviceRating: 8, ambienceRating: 8, text: '' });
+      // Re-fetch to replace optimistic entry with real Firestore data
+      try {
+        const q = query(collection(db, 'reviews'), where('restaurantHandle', '==', handle), orderBy('submittedAt', 'desc'));
+        const snap = await getDocs(q);
+        setRealReviews(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+        setFetchError(false);
+      } catch {
+        // optimistic entry stays visible; real data will load on next page visit
+      }
+    }
     setSubmitting(false);
-    // Re-fetch
-    try {
-      const q = query(collection(db, 'reviews'), where('restaurantHandle', '==', handle), orderBy('submittedAt', 'desc'));
-      const snap = await getDocs(q);
-      setRealReviews(snap.docs.map(d => ({ id: d.id, ...d.data() })));
-    } catch { /* ignore */ }
   }
 
   const allReviews = [
@@ -263,6 +284,9 @@ export default function ReviewSection({ restaurant }) {
       )}
 
       {/* Review list */}
+      {fetchError && (
+        <p className="review-fetch-error">Không thể tải đánh giá thực. Hệ thống đang được cập nhật, vui lòng thử lại sau.</p>
+      )}
       <div className="review-list">
         {allReviews.slice(0, 6).map((rev, i) => {
           const timeLabel = rev.isMock

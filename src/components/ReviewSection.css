@@ -123,6 +123,16 @@
 
 .btn-write-review:hover { opacity: 0.88; }
 
+.review-fetch-error {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  background: #fdf0ef;
+  border: 1px solid #f5c6c4;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+
 .review-login-hint {
   font-size: 13px;
   color: var(--text-secondary);
