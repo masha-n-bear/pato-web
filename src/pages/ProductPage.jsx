@@ -6,6 +6,9 @@ import Carousel from "../components/Carousel";
 import RestaurantCard from "../components/RestaurantCard";
 import Breadcrumb from "../components/Breadcrumb";
 import BookingModal from "../components/BookingModal";
+import ReviewSection from "../components/ReviewSection";
+import BookingWidget from "../components/BookingWidget";
+import { bookedTodayCount } from "../utils/hashUtils";
 import "./ProductPage.css";
 
 const SERVICE_LIST = [
@@ -518,7 +521,7 @@ export default function ProductPage() {
               <h1>{r.title}</h1>
               {r.address && (
                 <div className="product-address">
-                  <span className="address-icon">📍</span>
+                  <span className="address-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--brand)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
                   {r.address}
                 </div>
               )}
@@ -529,6 +532,40 @@ export default function ProductPage() {
                       {c}
                     </span>
                   ))}
+                </div>
+              )}
+
+              {/* Info row: opening hours + amenities */}
+              {(r.opening_hours || Object.keys(amenities).filter(k => k !== 'discount_available').length > 0) && (
+                <div className="product-info-section">
+                  {r.opening_hours && (
+                    <div className="product-info-col">
+                      <div className="product-info-col-title">Giờ hoạt động</div>
+                      <table className="hours-table">
+                        <tbody>
+                          {Object.entries(r.opening_hours).map(([day, hours]) => (
+                            <tr key={day}>
+                              <td><strong>{day}</strong></td>
+                              <td>{hours}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                  {Object.keys(amenities).filter(k => k !== 'discount_available').length > 0 && (
+                    <div className="product-info-col">
+                      <div className="product-info-col-title">Tiện ích</div>
+                      <div className="clearfix pro-has-service">
+                        {SERVICE_LIST.filter(s => s.key in amenities).map(s => (
+                          <span key={s.key} className={amenities[s.key] ? 'active' : ''}>
+                            {s.svg}
+                            {s.label}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -610,6 +647,9 @@ export default function ProductPage() {
               </div>
             )}
 
+            {/* Reviews */}
+            <ReviewSection restaurant={r} />
+
           </div>
 
           {/* ── RIGHT: sticky sidebar ── */}
@@ -617,6 +657,9 @@ export default function ProductPage() {
             {/* Card 1: Booking */}
             <div className="sidebar-card sidebar-booking">
               <div className="sidebar-restaurant-name">{r.title}</div>
+              <div className="sidebar-booked-today">
+                🔥 Đã được đặt <strong>{bookedTodayCount(r.handle)}</strong> lần hôm nay
+              </div>
               {r.discount && r.discount_details && (() => {
                 let items;
                 try { items = JSON.parse(r.discount_details); } catch { items = null; }
@@ -644,68 +687,15 @@ export default function ProductPage() {
                   </div>
                 );
               })()}
-              <button
-                className="btn-sidebar-book"
-                disabled={r.status === "Dừng hoạt động"}
-                style={
-                  r.status === "Dừng hoạt động"
-                    ? { background: "#717171", cursor: "default" }
-                    : undefined
-                }
-                onClick={() => {
-                  if (r.status === "Dừng hoạt động") return;
-                  posthog.capture("booking_cta_click", {
-                    restaurant_handle: r.handle,
-                  });
-                  setBookingOpen(true);
-                }}
-              >
-                {r.status === "Dừng hoạt động" ? "Dừng hoạt động" : "Đặt ngay"}
-              </button>
-              <div className="sidebar-phone-text">
-                hoặc gọi tới: <strong>1900.2280</strong> <br />
-                Để đặt chỗ và được tư vấn
-              </div>
-            </div>
-
-            {/* Card 2: Info */}
-            <div className="sidebar-card sidebar-info">
-              {r.opening_hours && (
-                <div className="sidebar-section">
-                  <div className="sidebar-section-title">Giờ hoạt động</div>
-                  <table className="hours-table">
-                    <tbody>
-                      {Object.entries(r.opening_hours).map(([day, hours]) => (
-                        <tr key={day}>
-                          <td>
-                            <strong>{day}</strong>
-                          </td>
-                          <td>{hours}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-
-              {Object.keys(amenities).filter((k) => k !== "discount_available")
-                .length > 0 && (
-                <div className="sidebar-section">
-                  <div className="sidebar-section-title">Tiện ích</div>
-                  <div className="clearfix pro-has-service">
-                    {SERVICE_LIST.filter((s) => s.key in amenities).map((s) => (
-                      <span
-                        key={s.key}
-                        className={amenities[s.key] ? "active" : ""}
-                      >
-                        {s.svg}
-                        {s.label}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {r.status === "Dừng hoạt động" ? (
+                <button className="btn-sidebar-book" disabled style={{ background: "#717171", cursor: "default" }}>
+                  Dừng hoạt động
+                </button>
+              ) : (
+                <BookingWidget restaurant={r} />
               )}
             </div>
+
           </div>
         </div>
 
