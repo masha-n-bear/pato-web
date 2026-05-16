@@ -203,7 +203,7 @@ export default function BookingWidget({ restaurant }) {
                     onClick={() => selectDate(dateStr)}
                   >
                     <span>{new Date(dateStr + 'T00:00:00').getDate()}</span>
-                    {hasDiscount && <div className="bw-discount-badge">{restaurant.discount_details || '-50%'}</div>}
+                    {hasDiscount && <div className="bw-discount-badge">{(restaurant.discount_details || '-50%').replace(/Giảm\s+(\d+%)/gi, '-$1')}</div>}
                   </div>
                 );
               })}
