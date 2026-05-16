@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { onAuthStateChanged } from 'firebase/auth'
 import {
   collection, getDocs, setDoc, deleteDoc, doc,
-  serverTimestamp, addDoc, query, orderBy, updateDoc,
+  serverTimestamp, addDoc, query, orderBy, updateDoc, where,
 } from 'firebase/firestore'
 import { auth, db } from './firebase'
 
@@ -133,6 +133,10 @@ const useAuthStore = create((set, get) => ({
     if (!user) return
     try {
       await deleteDoc(doc(db, 'users', user.uid, 'reviews', reviewId))
+      // Also remove the corresponding public review
+      const q = query(collection(db, 'reviews'), where('userReviewId', '==', reviewId))
+      const snap = await getDocs(q)
+      await Promise.all(snap.docs.map(d => deleteDoc(d.ref)))
       set(s => ({ reviews: s.reviews.filter(r => r.id !== reviewId) }))
     } catch { /* ignore */ }
   },
