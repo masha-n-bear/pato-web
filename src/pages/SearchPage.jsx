@@ -5,6 +5,7 @@ import RestaurantCard from '../components/RestaurantCard'
 import useStore from '../store'
 import config from '../data/config.json'
 import { getPurposeTags, PURPOSE_OPTIONS } from '../utils/purposeUtils'
+import { parseQueryToFilters } from '../utils/geminiSearch'
 import './SearchPage.css'
 import './CollectionsPage.css'
 
@@ -15,10 +16,48 @@ const AMENITY_OPTIONS = [
   "Chỗ hút thuốc", "Nhận giao hàng",
 ]
 
+function NlSearchBar({ locations, onApplyFilters }) {
+  const [nlQuery, setNlQuery] = useState('')
+  const [nlLoading, setNlLoading] = useState(false)
+  const [nlError, setNlError] = useState(null)
+
+  async function handleNlSearch() {
+    if (!nlQuery.trim()) return
+    setNlLoading(true)
+    setNlError(null)
+    try {
+      const filters = await parseQueryToFilters(nlQuery, locations)
+      onApplyFilters(filters, nlQuery.trim())
+    } catch (err) {
+      setNlError(err.message)
+    } finally {
+      setNlLoading(false)
+    }
+  }
+
+  return (
+    <div className="nl-search-bar">
+      <input
+        type="text"
+        value={nlQuery}
+        onChange={e => setNlQuery(e.target.value)}
+        onKeyDown={e => e.key === 'Enter' && handleNlSearch()}
+        placeholder="Mô tả nhà hàng bạn đang tìm, ví dụ: đồ Việt cho gia đình ở Hà Nội..."
+        disabled={nlLoading}
+      />
+      <button onClick={handleNlSearch} disabled={nlLoading || !nlQuery.trim()}>
+        {nlLoading ? 'Đang tìm...' : '✦ Tìm thông minh'}
+      </button>
+      {nlError && <p className="nl-error">{nlError}</p>}
+    </div>
+  )
+}
+
 export default function SearchPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const { restaurants, locations, loaded } = useStore()
   const [filterOpen, setFilterOpen] = useState(false)
+  const [nlLabel, setNlLabel] = useState('')
 
   const q = searchParams.get('q') || ''
   const cuisines = searchParams.getAll('cuisine')
@@ -29,6 +68,10 @@ export default function SearchPage() {
   const amenities = searchParams.getAll('amenity')
   const province = searchParams.get('province') || ''
   const district = searchParams.get('district') || ''
+  const sort = searchParams.get('sort') || 'default'
+
+  const hasFilters = q.trim() || cuisines.length || services.length || prices.length ||
+    discount || province || district || purposes.length || amenities.length
 
   const districts = useMemo(() => {
     if (!province) return []
@@ -36,9 +79,8 @@ export default function SearchPage() {
     return loc ? loc.districts : []
   }, [locations, province])
 
-  const results = useMemo(() => {
+  const filtered = useMemo(() => {
     return restaurants.filter(r => {
-      // text search
       if (q.trim()) {
         const lower = q.toLowerCase()
         if (
@@ -54,7 +96,7 @@ export default function SearchPage() {
       if (province && r.province !== province) return false
       if (district && r.district !== district) return false
       if (purposes.length) {
-        const rPurposes = getPurposeTags(r)
+        const rPurposes = r.purpose_tags || []
         if (!purposes.some(p => rPurposes.includes(p))) return false
       }
       if (amenities.length) {
@@ -65,6 +107,14 @@ export default function SearchPage() {
       return true
     })
   }, [q, restaurants, cuisines, services, prices, discount, province, district, purposes, amenities])
+
+  const results = useMemo(() => {
+    const arr = [...filtered]
+    if (sort === 'newest') arr.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+    else if (sort === 'price_asc') arr.sort((a, b) => Number(a.price_range) - Number(b.price_range))
+    else if (sort === 'price_desc') arr.sort((a, b) => Number(b.price_range) - Number(a.price_range))
+    return arr
+  }, [filtered, sort])
 
   useEffect(() => {
     if (!loaded) return
@@ -97,6 +147,29 @@ export default function SearchPage() {
     setSearchParams(p)
   }
 
+  function setSort(val) {
+    const p = new URLSearchParams(searchParams)
+    if (val === 'default') p.delete('sort')
+    else p.set('sort', val)
+    setSearchParams(p)
+  }
+
+  function applyNlFilters(filters, label) {
+    const p = new URLSearchParams(searchParams)
+    ;['cuisine', 'service', 'price', 'purpose', 'amenity'].forEach(k => p.delete(k))
+    p.delete('province')
+    p.delete('district')
+    if (filters.cuisine) filters.cuisine.forEach(v => p.append('cuisine', v))
+    if (filters.service) filters.service.forEach(v => p.append('service', v))
+    if (filters.price) filters.price.forEach(v => p.append('price', v))
+    if (filters.purpose) filters.purpose.forEach(v => p.append('purpose', v))
+    if (filters.amenity) filters.amenity.forEach(v => p.append('amenity', v))
+    if (filters.province) p.set('province', filters.province)
+    if (filters.district) p.set('district', filters.district)
+    setSearchParams(p)
+    setNlLabel(label || '')
+  }
+
   function toggleDiscount() {
     const p = new URLSearchParams(searchParams)
     if (discount) p.delete('discount')
@@ -104,13 +177,15 @@ export default function SearchPage() {
     setSearchParams(p)
   }
 
+  const searchLabel = nlLabel || (q ? `"${q}"` : '')
+
   return (
     <div className="search-page">
       <div className="wrapper">
         <div className="collections-inner">
           {filterOpen && <div className="filter-overlay" onClick={() => setFilterOpen(false)} />}
 
-          {/* Filter sidebar – same structure as CollectionsPage */}
+          {/* Filter sidebar */}
           <aside className={`collections-sidebar${filterOpen ? ' is-open' : ''}`}>
             <button className="filter-close-btn" onClick={() => setFilterOpen(false)}>✕ Đóng</button>
 
@@ -206,19 +281,34 @@ export default function SearchPage() {
 
           {/* Main content */}
           <div className="collections-content">
+            <NlSearchBar locations={locations} onApplyFilters={applyNlFilters} />
+
+            {hasFilters && (
+              <div className="search-result-label">
+                <h2 className="search-h2">
+                  Bạn đang tìm{searchLabel ? ': ' : ''}<em>{searchLabel}</em>
+                </h2>
+              </div>
+            )}
+
             <div className="collections-header">
               <div className="collections-header-right">
                 <button className="mobile-filter-btn" onClick={() => setFilterOpen(true)}>
                   ☰ Lọc nâng cao
                 </button>
-              </div>
-              <div>
-                <h1 className="search-h1">
-                  {q ? `Kết quả: "${q}"` : 'Tất cả nhà hàng'}
-                </h1>
-                <p className="search-count">
-                  {!loaded ? 'Đang tải...' : `${results.length} kết quả`}
-                </p>
+                {hasFilters && (
+                  <select className="sort-select" value={sort} onChange={e => setSort(e.target.value)}>
+                    <option value="default">Pato đề xuất</option>
+                    <option value="newest">Mới nhất</option>
+                    <option value="price_asc">Giá từ thấp đến cao</option>
+                    <option value="price_desc">Giá từ cao đến thấp</option>
+                  </select>
+                )}
+                {hasFilters && (
+                  <span className="result-count">
+                    {loaded ? `Có ${results.length} nhà hàng phù hợp` : 'Đang tải...'}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -237,15 +327,24 @@ export default function SearchPage() {
               </div>
             )}
 
-            <div className="search-grid">
-              {results.map(r => (
-                <RestaurantCard key={r.handle} restaurant={r} section="search_results" />
-              ))}
-            </div>
-            {loaded && results.length === 0 && (
-              <div className="no-results">
-                <p>Không tìm thấy nhà hàng phù hợp{q ? ` với "${q}"` : ''}.</p>
+            {!hasFilters ? (
+              <div className="nl-empty-state">
+                <p className="nl-empty-hint">Nhập mô tả vào ô tìm thông minh bên trên, hoặc chọn bộ lọc ở thanh bên để bắt đầu tìm kiếm.</p>
+                <p className="nl-empty-example">Ví dụ: <em>"Đồ Việt cho gia đình ở nội thành Hà Nội"</em>, <em>"Nhà hàng lẩu có chỗ đỗ xe quận 1"</em></p>
               </div>
+            ) : (
+              <>
+                <div className="search-grid">
+                  {results.map(r => (
+                    <RestaurantCard key={r.handle} restaurant={r} section="search_results" />
+                  ))}
+                </div>
+                {loaded && results.length === 0 && (
+                  <div className="no-results">
+                    <p>Không tìm thấy nhà hàng phù hợp{q ? ` với "${q}"` : ''}.</p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

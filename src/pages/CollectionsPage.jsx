@@ -64,7 +64,7 @@ export default function CollectionsPage() {
 
       // Purpose filter
       if (purposes.length) {
-        const rPurposes = getPurposeTags(r);
+        const rPurposes = r.purpose_tags || [];
         if (!purposes.some(p => rPurposes.includes(p))) return false;
       }
 

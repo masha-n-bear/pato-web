@@ -168,6 +168,26 @@
     cursor: pointer;
 }
 
+.ai-search-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: linear-gradient(135deg, #e8873a 0%, #c9602a 100%);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: opacity 0.2s;
+}
+
+.ai-search-btn:hover {
+    opacity: 0.85;
+    color: #fff;
+}
+
 .hotline-link {
     display: flex;
     align-items: center;

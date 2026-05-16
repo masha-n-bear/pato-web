@@ -134,7 +134,7 @@ export default function HomePage() {
   const partyRestaurants = useMemo(() => {
     return restaurants
       .filter(r => {
-        const tags = getPurposeTags(r);
+        const tags = r.purpose_tags || [];
         return tags.includes('Sinh nhật') || tags.includes('Tiệc công ty');
       })
       .slice(0, 12);
