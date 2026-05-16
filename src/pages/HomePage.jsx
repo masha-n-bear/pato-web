@@ -3,10 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Carousel from "../components/Carousel";
 import RestaurantCard from "../components/RestaurantCard";
 import useStore from "../store";
+import useAuthStore from "../authStore";
 import config from "../data/config.json";
 import { getPurposeTags, PURPOSE_OPTIONS } from "../utils/purposeUtils";
 import { getOpeningHoursForDate } from "../utils/bookingUtils";
 import { bookedTodayCount } from "../utils/hashUtils";
+import { getPersonalizedRecommendations } from "../utils/scoringUtils";
 import "./HomePage.css";
 
 const BLOG_COLLECTION_LABELS = {
@@ -80,6 +82,7 @@ function SkeletonRow() {
 export default function HomePage() {
   const navigate = useNavigate();
   const { restaurants, locations, collections, loaded } = useStore();
+  const savedHandles = useAuthStore((s) => s.savedHandles);
   const [province, setProvince] = useState("");
   const [district, setDistrict] = useState("");
   const [priceRange, setPriceRange] = useState("");
@@ -113,11 +116,30 @@ export default function HomePage() {
   );
 
   const proposedCollection = useMemo(() => {
-    const col = collections.find(c => c.handle === 'pato-de-xuat-top-nha-hang-tai-ha-noi');
-    if (!col) return [];
-    const map = new Map(restaurants.map(r => [r.handle, r]));
-    return col.restaurant_handles.map(h => map.get(h)).filter(Boolean).slice(0, 12);
-  }, [collections, restaurants]);
+    const savedList = restaurants.filter((r) => savedHandles.has(r.handle));
+    const recentHandles = JSON.parse(localStorage.getItem("pato_recently_viewed") || "[]");
+    const recentList = recentHandles
+      .map((h) => restaurants.find((r) => r.handle === h))
+      .filter(Boolean);
+
+    const savedHandleSet = new Set(savedList.map((r) => r.handle));
+    const weightedRefs = [
+      ...savedList.map((r) => ({ restaurant: r, weight: 2.5 })),
+      ...recentList
+        .filter((r) => !savedHandleSet.has(r.handle))
+        .map((r) => ({ restaurant: r, weight: 1.0 })),
+    ];
+
+    if (weightedRefs.length === 0) {
+      const col = collections.find((c) => c.handle === "pato-de-xuat-top-nha-hang-tai-ha-noi");
+      if (!col) return [];
+      const map = new Map(restaurants.map((r) => [r.handle, r]));
+      return col.restaurant_handles.map((h) => map.get(h)).filter(Boolean).slice(0, 12);
+    }
+
+    const candidates = restaurants.filter((r) => !savedHandles.has(r.handle));
+    return getPersonalizedRecommendations(weightedRefs, candidates, { topN: 12 });
+  }, [collections, restaurants, savedHandles]);
 
   const mostBookedRestaurants = useMemo(() => {
     return [...restaurants]

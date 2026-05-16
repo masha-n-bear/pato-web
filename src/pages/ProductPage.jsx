@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import posthog from "posthog-js";
 import useStore from "../store";
@@ -9,6 +9,7 @@ import BookingModal from "../components/BookingModal";
 import ReviewSection from "../components/ReviewSection";
 import BookingWidget from "../components/BookingWidget";
 import { bookedTodayCount } from "../utils/hashUtils";
+import { getRelatedRestaurants } from "../utils/scoringUtils";
 import "./ProductPage.css";
 
 const SERVICE_LIST = [
@@ -420,15 +421,19 @@ export default function ProductPage() {
   );
 
   const related = useMemo(() => {
-    if (!r) return [];
-    return restaurants.filter(
-      (rest) =>
-        rest.handle !== r.handle &&
-        rest.province === r.province &&
-        rest.district === r.district &&
-        rest.cuisine_main === r.cuisine_main,
-    );
+    if (!r || !restaurants.length) return [];
+    return getRelatedRestaurants(r, restaurants, {
+      hardRule: (candidate) => candidate.province === r.province,
+      topN: 10,
+    });
   }, [restaurants, r]);
+
+  useEffect(() => {
+    if (!r) return;
+    const prev = JSON.parse(localStorage.getItem("pato_recently_viewed") || "[]");
+    const next = [r.handle, ...prev.filter((h) => h !== r.handle)].slice(0, 3);
+    localStorage.setItem("pato_recently_viewed", JSON.stringify(next));
+  }, [r?.handle]);
 
   if (!loaded) {
     return (
