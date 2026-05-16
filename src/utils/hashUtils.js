@@ -8,7 +8,9 @@ function simpleHash(str) {
 
 export function bookedTodayCount(handle) {
   const today = new Date().toISOString().slice(0, 10);
-  return (simpleHash(handle + today) % 36) + 5; // 5–40
+  const base = (simpleHash(handle + today) % 36) + 5; // 5–40
+  const noise = Math.floor(Math.random() * 7) - 3;    // ±3
+  return Math.max(1, base + noise);
 }
 
 export function getRestaurantRating(handle) {
