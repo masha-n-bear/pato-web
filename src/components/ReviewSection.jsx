@@ -3,33 +3,8 @@ import { collection, query, where, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import useAuthStore from '../authStore';
 import { getRestaurantRating, getReviewCount } from '../utils/hashUtils';
+import { REVIEW_POOL } from '../data/mockReviewPool';
 import './ReviewSection.css';
-
-const MOCK_REVIEWERS = [
-  { name: 'Nguyễn Minh Anh', avatar: 'N', profile: 'positive' },
-  { name: 'Trần Thị Hoa', avatar: 'T', profile: 'positive' },
-  { name: 'Lê Văn Nam', avatar: 'L', profile: 'positive' },
-  { name: 'Phạm Thùy Linh', avatar: 'P', profile: 'positive' },
-  { name: 'Hoàng Đức Minh', avatar: 'H', profile: 'neutral' },
-  { name: 'Đặng Thu Trang', avatar: 'Đ', profile: 'critical' },
-];
-
-const MOCK_TEXTS = {
-  positive: [
-    'Nhà hàng có không gian rất đẹp và thoáng mát. Món ăn ngon, phục vụ nhiệt tình. Sẽ quay lại lần sau!',
-    'Đồ ăn tươi ngon, giá cả hợp lý. Nhân viên thân thiện và chuyên nghiệp. Rất hài lòng!',
-    'Không gian lãng mạn, phù hợp cho các buổi hẹn hò hay tiệc nhỏ. Thực đơn đa dạng.',
-    'Phục vụ nhanh, món ăn đúng với mô tả. Đặc biệt ấn tượng với món đặc sắc của nhà hàng.',
-  ],
-  neutral: [
-    'Nhà hàng ở mức ổn, không có gì đặc biệt nổi bật nhưng cũng không có gì phải chê. Món ăn vừa miệng, giá hơi cao so với khẩu phần.',
-    'Trải nghiệm tạm được. Đồ ăn ra hơi chậm vào buổi tối cuối tuần. Không gian đẹp nhưng hơi ồn.',
-  ],
-  critical: [
-    'Thất vọng với chất lượng phục vụ. Phải đợi gần 30 phút mới có nhân viên đến gọi món. Đồ ăn nguội khi mang ra.',
-    'Giá không tương xứng với chất lượng. Món chính nhạt, phần ăn nhỏ. Sẽ không quay lại.',
-  ],
-};
 
 function seededRandInt(seed, min, max) {
   let h = 5381;
@@ -37,49 +12,19 @@ function seededRandInt(seed, min, max) {
   return min + (Math.abs(h) % (max - min + 1));
 }
 
-function generateMockReviews(handle) {
-  const posTexts = MOCK_TEXTS.positive;
-  const neuTexts = MOCK_TEXTS.neutral;
-  const critTexts = MOCK_TEXTS.critical;
-  let posIdx = 0, neuIdx = 0, critIdx = 0;
-  return MOCK_REVIEWERS.map((r, i) => {
-    const seed = handle + r.name;
-    let rating, food, service, ambience, text;
-    if (r.profile === 'positive') {
-      rating = seededRandInt(seed + 'r', 80, 100) / 10;
-      food = seededRandInt(seed + 'f', 78, 100) / 10;
-      service = seededRandInt(seed + 's', 75, 100) / 10;
-      ambience = seededRandInt(seed + 'a', 75, 100) / 10;
-      text = posTexts[posIdx++ % posTexts.length];
-    } else if (r.profile === 'neutral') {
-      rating = seededRandInt(seed + 'r', 55, 72) / 10;
-      food = seededRandInt(seed + 'f', 55, 72) / 10;
-      service = seededRandInt(seed + 's', 50, 70) / 10;
-      ambience = seededRandInt(seed + 'a', 55, 72) / 10;
-      text = neuTexts[neuIdx++ % neuTexts.length];
-    } else {
-      rating = seededRandInt(seed + 'r', 30, 52) / 10;
-      food = seededRandInt(seed + 'f', 30, 52) / 10;
-      service = seededRandInt(seed + 's', 25, 50) / 10;
-      ambience = seededRandInt(seed + 'a', 30, 52) / 10;
-      text = critTexts[critIdx++ % critTexts.length];
+function selectMockReviews(handle) {
+  const count = seededRandInt(handle + 'cnt_v2', 0, 10);
+  if (count === 0) return [];
+  const used = new Set();
+  const result = [];
+  for (let i = 0; i < count * 3 && result.length < count; i++) {
+    const idx = seededRandInt(handle + 'pick_v2_' + i, 0, REVIEW_POOL.length - 1);
+    if (!used.has(idx)) {
+      used.add(idx);
+      result.push({ ...REVIEW_POOL[idx], id: `pool-${idx}-${handle}`, isMock: true });
     }
-    const daysAgo = seededRandInt(seed + 'd', 3, 60);
-    const helpful = seededRandInt(seed + 'h', 1, 28);
-    return {
-      id: `mock-${i}`,
-      userName: r.name,
-      avatar: r.avatar,
-      rating: parseFloat(rating.toFixed(1)),
-      foodRating: parseFloat(food.toFixed(1)),
-      serviceRating: parseFloat(service.toFixed(1)),
-      ambienceRating: parseFloat(ambience.toFixed(1)),
-      text,
-      helpful,
-      daysAgo,
-      isMock: true,
-    };
-  });
+  }
+  return result;
 }
 
 function StarBar({ value }) {
@@ -126,7 +71,7 @@ export default function ReviewSection({ restaurant }) {
 
   const overallRating = getRestaurantRating(handle);
   const totalCount = getReviewCount(handle);
-  const mockReviews = generateMockReviews(handle);
+  const mockReviews = selectMockReviews(handle);
 
   // Avg category scores (mock-based)
   const avgFood = parseFloat((mockReviews.reduce((s, r) => s + r.foodRating, 0) / mockReviews.length).toFixed(1));

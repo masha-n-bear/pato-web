@@ -5,6 +5,7 @@ import {
   serverTimestamp, addDoc, query, orderBy, updateDoc, where,
 } from 'firebase/firestore'
 import { auth, db } from './firebase'
+import posthog from 'posthog-js'
 
 const useAuthStore = create((set, get) => ({
   user: null,
@@ -147,6 +148,10 @@ export function initAuth() {
     if (user) {
       useAuthStore.getState().setUser(user)
       useAuthStore.getState().setSavedHandles(new Set())
+      posthog.identify(user.uid, {
+        email: user.email,
+        name: user.displayName,
+      })
       try {
         const snap = await getDocs(collection(db, 'users', user.uid, 'savedRestaurants'))
         useAuthStore.getState().setSavedHandles(new Set(snap.docs.map(d => d.id)))
@@ -154,6 +159,7 @@ export function initAuth() {
     } else {
       useAuthStore.getState().setUser(null)
       useAuthStore.getState().setSavedHandles(new Set())
+      posthog.reset()
     }
     useAuthStore.getState().setAuthLoading(false)
   })

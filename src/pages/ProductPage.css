@@ -100,6 +100,15 @@
     gap: 6px;
     font-size: 14px;
     color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.product-hours {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--text-secondary);
     margin-bottom: 12px;
 }
 
@@ -123,21 +132,13 @@
     font-weight: 500;
 }
 
-/* ── Info section (opening hours + amenities row) ── */
+/* ── Amenities box ── */
 .product-info-section {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
     margin-top: 20px;
     padding: 16px 20px;
     background: #fafafa;
     border: 1px solid var(--border);
     border-radius: 8px;
-}
-
-.product-info-col {
-    flex: 1;
-    min-width: 200px;
 }
 
 .product-info-col-title {
@@ -147,7 +148,7 @@
     color: var(--dark);
     border-bottom: 2px solid var(--brand);
     padding-bottom: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     letter-spacing: 0.3px;
 }
 
@@ -457,8 +458,8 @@
 /* ── Service amenity grid (pro-has-service) ── */
 .pro-has-service {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 8px;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px 12px;
 }
 
 .pro-has-service span {

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import posthog from "posthog-js";
 import SaveButton from "./SaveButton";
@@ -15,6 +16,27 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
   const r = restaurant;
   const priceLabel = PRICE_LABELS[r.price_range] || "";
   const bookedCount = bookedTodayCount(r.handle);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          posthog.capture("restaurant_card_impression", {
+            restaurant_handle: r.handle,
+            section,
+            $current_url: window.location.href,
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [r.handle, section]);
 
   const trackClick = () =>
     posthog.capture("restaurant_card_click", {
@@ -24,7 +46,7 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
     });
 
   return (
-    <div className="product-item">
+    <div ref={cardRef} className="product-item">
       <div className="product-img">
         <Link to={`/products/${r.handle}`} onClick={trackClick}>
           <img src={r.thumbnail} alt={r.title} loading="lazy" />

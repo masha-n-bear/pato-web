@@ -531,6 +531,12 @@ export default function ProductPage() {
                   {r.address}
                 </div>
               )}
+              {r.opening_hours && (
+                <div className="product-hours">
+                  <span className="address-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 640 640" fill="var(--brand)"><path d="M320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"/></svg></span>
+                  {r.opening_hours["Thứ Hai"] ?? Object.values(r.opening_hours)[0]}
+                </div>
+              )}
               {r.cuisine_all?.length > 0 && (
                 <div className="cuisine-tags">
                   {r.cuisine_all.map((c) => (
@@ -541,37 +547,18 @@ export default function ProductPage() {
                 </div>
               )}
 
-              {/* Info row: opening hours + amenities */}
-              {(r.opening_hours || Object.keys(amenities).filter(k => k !== 'discount_available').length > 0) && (
+              {/* Amenities box */}
+              {Object.keys(amenities).filter(k => k !== 'discount_available').length > 0 && (
                 <div className="product-info-section">
-                  {r.opening_hours && (
-                    <div className="product-info-col">
-                      <div className="product-info-col-title">Giờ hoạt động</div>
-                      <table className="hours-table">
-                        <tbody>
-                          {Object.entries(r.opening_hours).map(([day, hours]) => (
-                            <tr key={day}>
-                              <td><strong>{day}</strong></td>
-                              <td>{hours}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
-                  {Object.keys(amenities).filter(k => k !== 'discount_available').length > 0 && (
-                    <div className="product-info-col">
-                      <div className="product-info-col-title">Tiện ích</div>
-                      <div className="clearfix pro-has-service">
-                        {SERVICE_LIST.filter(s => s.key in amenities).map(s => (
-                          <span key={s.key} className={amenities[s.key] ? 'active' : ''}>
-                            {s.svg}
-                            {s.label}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  <div className="product-info-col-title">Tiện ích</div>
+                  <div className="pro-has-service">
+                    {SERVICE_LIST.filter(s => s.key in amenities).map(s => (
+                      <span key={s.key} className={amenities[s.key] ? 'active' : ''}>
+                        {s.svg}
+                        {s.label}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

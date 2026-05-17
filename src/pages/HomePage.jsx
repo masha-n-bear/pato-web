@@ -88,6 +88,7 @@ export default function HomePage() {
   const [priceRange, setPriceRange] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [purpose, setPurpose] = useState("");
+  const [amenity, setAmenity] = useState("");
   const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
@@ -178,6 +179,7 @@ export default function HomePage() {
     if (priceRange) params.set("price", priceRange);
     if (cuisine) params.set("cuisine", cuisine);
     if (purpose) params.append("purpose", purpose);
+    if (amenity) params.append("amenity", amenity);
     navigate(`/collections?${params.toString()}`);
   }
 
@@ -250,6 +252,12 @@ export default function HomePage() {
                       <select value={purpose} onChange={e => setPurpose(e.target.value)}>
                         <option value="">Mục đích</option>
                         {PURPOSE_OPTIONS.map(p => <option key={p} value={p}>{p}</option>)}
+                      </select>
+                    </div>
+                    <div className="search-field">
+                      <select value={amenity} onChange={e => setAmenity(e.target.value)}>
+                        <option value="">Tiện ích</option>
+                        {["Chỗ đỗ xe","Wifi","Phòng riêng","Thanh toán thẻ","Có xuất hóa đơn","Trang trí sự kiện","Karaoke","Bàn ngoài trời","Màn chiếu","Khu vui chơi trẻ em","Chỗ hút thuốc","Nhận giao hàng"].map(a => <option key={a} value={a}>{a}</option>)}
                       </select>
                     </div>
                     <div className="search-field search-submit">
