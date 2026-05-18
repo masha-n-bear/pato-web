@@ -109,31 +109,71 @@ function validate(raw, provinces) {
   return result;
 }
 
+const MODELS = [
+  "gemini-2.5-flash-lite",
+  "gemini-3.1-flash-lite",
+  "gemini-3-flash-preview",
+  "gemini-3.1-flash-lite-preview",
+  "gemini-2.5-flash",
+];
+
+let keyIndex = 0;
+let modelIndex = 0;
+
+function getApiKeys() {
+  const keys = [];
+  const primary = import.meta.env.VITE_GEMINI_API_KEY;
+  if (primary) keys.push(primary);
+  for (let i = 2; i <= 10; i++) {
+    const k = import.meta.env[`VITE_GEMINI_API_KEY_${i}`];
+    if (k) keys.push(k);
+  }
+  return keys;
+}
+
 export async function parseQueryToFilters(query, locations) {
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-  if (!apiKey) throw new Error("VITE_GEMINI_API_KEY chưa được cấu hình");
+  const apiKeys = getApiKeys();
+  if (!apiKeys.length)
+    throw new Error("VITE_GEMINI_API_KEY chưa được cấu hình");
 
   const provinces = locations.map((l) => l.province);
   const prompt = buildPrompt(query, provinces);
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const totalCombinations = apiKeys.length * MODELS.length;
+  let lastError;
 
-  const response = await model.generateContent(prompt);
-  const text = response.response.text().trim();
+  for (let attempt = 0; attempt < totalCombinations; attempt++) {
+    const key = apiKeys[keyIndex % apiKeys.length];
+    const modelName = MODELS[modelIndex % MODELS.length];
 
-  // Strip markdown code fences if present
-  const jsonText = text
-    .replace(/^```(?:json)?\s*/i, "")
-    .replace(/\s*```$/, "")
-    .trim();
+    keyIndex = (keyIndex + 1) % apiKeys.length;
+    if (keyIndex === 0) modelIndex = (modelIndex + 1) % MODELS.length;
 
-  let raw;
-  try {
-    raw = JSON.parse(jsonText);
-  } catch {
-    throw new Error("Không thể phân tích kết quả từ AI. Vui lòng thử lại.");
+    try {
+      const genAI = new GoogleGenerativeAI(key);
+      const model = genAI.getGenerativeModel({ model: modelName });
+
+      const response = await model.generateContent(prompt);
+      const text = response.response.text().trim();
+
+      const jsonText = text
+        .replace(/^```(?:json)?\s*/i, "")
+        .replace(/\s*```$/, "")
+        .trim();
+
+      let raw;
+      try {
+        raw = JSON.parse(jsonText);
+      } catch {
+        throw new Error("Không thể phân tích kết quả từ AI. Vui lòng thử lại.");
+      }
+
+      return validate(raw, provinces);
+    } catch (err) {
+      if (err.message?.includes("phân tích")) throw err;
+      lastError = err;
+    }
   }
 
-  return validate(raw, provinces);
+  throw lastError ?? new Error("Không thể kết nối AI. Vui lòng thử lại.");
 }
