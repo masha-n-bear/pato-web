@@ -15,13 +15,16 @@ function seededRandInt(seed, min, max) {
 function selectMockReviews(handle) {
   const count = seededRandInt(handle + 'cnt_v2', 0, 10);
   if (count === 0) return [];
-  const used = new Set();
+  const usedIdx = new Set();
+  const usedNames = new Set();
   const result = [];
-  for (let i = 0; i < count * 3 && result.length < count; i++) {
+  for (let i = 0; i < count * 5 && result.length < count; i++) {
     const idx = seededRandInt(handle + 'pick_v2_' + i, 0, REVIEW_POOL.length - 1);
-    if (!used.has(idx)) {
-      used.add(idx);
-      result.push({ ...REVIEW_POOL[idx], id: `pool-${idx}-${handle}`, isMock: true });
+    const review = REVIEW_POOL[idx];
+    if (!usedIdx.has(idx) && !usedNames.has(review.userName)) {
+      usedIdx.add(idx);
+      usedNames.add(review.userName);
+      result.push({ ...review, id: `pool-${idx}-${handle}`, isMock: true });
     }
   }
   return result;
