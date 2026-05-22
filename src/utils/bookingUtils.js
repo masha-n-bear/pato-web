@@ -45,13 +45,20 @@ export function generateTimeSlots(openingHours, dateStr) {
   const lower = hoursStr.toLowerCase();
   if (lower.includes('đóng') || lower.includes('closed') || lower.includes('không hoạt động')) return [];
 
-  // Handle multi-session (e.g. "10:00-14:00 & 17:30-22:00")
+  // Handle multi-session (e.g. "10:00-14:00 & 17:30-22:00" or fixed slots "12:00 & 18:00 & 20:00")
   const sessions = hoursStr.includes('&') ? hoursStr.split('&').map(s => s.trim()) : [hoursStr];
   const allSlots = [];
   const seen = new Set();
   for (const session of sessions) {
-    for (const slot of parseTimeRange(session)) {
+    // Standalone time (e.g. "12:00") — treat as a fixed booking slot, not a range
+    if (/^\d{1,2}:\d{2}$/.test(session)) {
+      const [h, m] = session.split(':').map(Number);
+      const slot = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
       if (!seen.has(slot)) { seen.add(slot); allSlots.push(slot); }
+    } else {
+      for (const slot of parseTimeRange(session)) {
+        if (!seen.has(slot)) { seen.add(slot); allSlots.push(slot); }
+      }
     }
   }
   return allSlots;
