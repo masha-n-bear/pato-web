@@ -1,0 +1,4174 @@
+[
+    {
+        "handle": "mor-fai-tttm-vincom-plaza-ngo-quyen",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Wed"
+                ],
+                "hours": [
+                    "12:00-14:00"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "hours": [
+                    "08:00-19:00"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 4,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: Tặng 1 vé buffet miễn phí cho nhóm từ 04 khách hàng"
+            },
+            {
+                "min": 8,
+                "max": 14,
+                "percentage": 15,
+                "discount_id": 5,
+                "discount_description": "ƯU ĐÃI 5: Giảm ngay 15% cho nhóm từ 08 khách"
+            },
+            {
+                "min": 15,
+                "max": 999,
+                "percentage": 20,
+                "discount_id": 5,
+                "discount_description": "ƯU ĐÃI 5: Giảm ngay 20% cho nhóm từ 15 khách"
+            },
+            {
+                "min": 1,
+                "max": 999,
+                "discount_id": 6,
+                "discount_description": "ƯU ĐÃI 6: Miễn phí vé Buffet line cho khách mua vé Super Sabai (329K)"
+            }
+        ]
+    },
+    {
+        "handle": "nha-hang-ben-xua-08-cao-dat",
+        "guest_count_rules": [
+            {
+                "min": 4,
+                "max": 999,
+                "discount_id": 3,
+                "discount_description": "ƯU ĐÃI 3: KHUYẾN MÃI TẶNG MÓN (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-tttm-vincom-plaza-le-van-viet",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-tttm-sc-vivo-city",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "ngan-76-76-nguyen-van-tuyet",
+        "guest_count_rules": [
+            {
+                "min": 10,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "nha-hang-ha-giang-lau-cua-dong-287-to-hieu",
+        "guest_count_rules": [
+            {
+                "min": 30,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI SỰ KIỆN (Áp dụng cho khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-124-yen-bai",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "nuong-lau-gia-khanh-c01-l39-le-quang-dao",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "khoa-phuong-bt3-18-kdt-ngoai-giao-doan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "ssamjang-cuon-han-quoc-tttm-vincom-plaza-3-2",
+        "guest_count_rules": [
+            {
+                "min": 2,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "ssamjang-cuon-han-quoc-monbay-a10-14-15",
+        "guest_count_rules": [
+            {
+                "min": 2,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "ssamjang-cuon-han-quoc-tttm-go-thang-long",
+        "guest_count_rules": [
+            {
+                "min": 2,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-tttm-aeon-mall-tan-phu",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-tttm-aeon-mall-hue",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 19
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 8
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 7
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            }
+        ]
+    },
+    {
+        "handle": "matsuri-japanese-restaurant-tttm-vincom-center-landmark-81",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "kyoto-sachi-29-mac-thai-tong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 50
+            },
+            {
+                "date": [
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 45
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: ƯU ĐÃI SINH NHẬT (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "sin-quan-7-da-tuong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 54
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 42
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 34
+            },
+            {
+                "date": [
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 26
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 27
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 27
+            }
+        ]
+    },
+    {
+        "handle": "oc-2-tay-76-ngoc-khanh",
+        "guest_count_rules": [
+            {
+                "min": 2,
+                "max": 999,
+                "discount_description": ""
+            }
+        ]
+    },
+    {
+        "handle": "ssamjang-cuon-han-quoc-d5-tran-thai-tong",
+        "guest_count_rules": [
+            {
+                "min": 2,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "quan-nho-122-vinh-tuy",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY ĐẾN 10% (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "quan-nhau-tuan-rau-59-yen-lang",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-473-su-van-hanh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-tttm-vincom-smart-city",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "cua-dang-jia-125-hoang-ngan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "chay-dam-hoa-green-park-duong-dinh-nghe",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "vi-bia-275-doi-can",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "little-faifo-66-nguyen-thai-hoc",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "khoa-ngan-xua-va-nay-15-ngo-15-duy-tan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 25
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "hours": [
+                    "14:00-18:00"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "lau-tom-sen-dao-92-cua-bac",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "lau-de-kho-thu-beo-107-nguy-nhu-kon-tum",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "nha-hang-neptune-5-nguyen-huy-tuong",
+        "guest_count_rules": [
+            {
+                "min": 30,
+                "max": 999,
+                "percentage": 5,
+                "discount_description": ""
+            }
+        ]
+    },
+    {
+        "handle": "lau-bo-duc-beo-39-hc-golden-city",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "nha-hang-my-9-b4-lo-26-le-hong-phong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "sen-trang-an-62-ngo-70-pham-van-nghi",
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: ƯU ĐÃI TẶNG MÓN (Áp dụng cho các Khách đặt bàn trước tại PATO)"
+            },
+            {
+                "min": 40,
+                "max": 999,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: ƯU ĐÃI TRANG TRÍ (Áp dụng cho các Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-tttm-emart-phan-van-tri",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "khoa-ngan-xua-va-nay-38-ngo-78-duy-tan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 25
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "hours": [
+                    "14:00-18:00"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "ssamjang-cuon-han-quoc-50-dao-tan",
+        "guest_count_rules": [
+            {
+                "min": 2,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "ssamjang-cuon-han-quoc-lo-tt3-linh-dam",
+        "guest_count_rules": [
+            {
+                "min": 2,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "kuma-pizza-tttm-aeon-mall-xuan-thuy",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "dinh-quan-91y-vo-thi-sau",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "king-sushi-lau-122-ho-den-lu",
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: TẶNG MAKI TỔNG HỢP (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "chay-dam-hoa-32-dich-vong-hau",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "yaki-yaki-yo-165-tay-thanh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue"
+                ],
+                "percentage": 16
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 4,
+                "max": 999,
+                "discount_id": 3,
+                "discount_description": "ƯU ĐÃI 3: ƯU ĐÃI SINH NHẬT (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "lau-nam-thien-nhien-king-mushroom-bt12-11-kdt-an-hung",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 5,
+                "max": 6,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: ƯU ĐÃI GIẢM GIÁ MÓN (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "quan-nho-77-lang-ha",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY ĐẾN 10% (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "quan-nho-9-yen-phu",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY ĐẾN 10% (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "quan-nho-38-phung-hung",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY ĐẾN 10% (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "quan-nho-31-lang-ha",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY ĐẾN 10% (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "lau-nam-thao-quy-12-le-duc-tho",
+        "guest_count_rules": [
+            {
+                "min": 4,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 05% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "mor-fai-17-le-hong-phong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 4,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: ƯU ĐÃI TẶNG MÓN (Áp dụng với Khách đặt bàn trước tại PATO)"
+            },
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 5,
+                "percentage": 20,
+                "discount_description": "ƯU ĐÃI 5: GIẢM NGAY 20% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "shinbashi-65-67-trieu-viet-vuong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 50
+            }
+        ]
+    },
+    {
+        "handle": "am-thuc-que-nha-28-pham-ngoc-thach",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 8
+            }
+        ]
+    },
+    {
+        "handle": "am-thuc-que-nha-52a-nguyen-thai-binh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 8
+            }
+        ]
+    },
+    {
+        "handle": "am-thuc-que-nha-5-thanh-thai",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 8
+            }
+        ]
+    },
+    {
+        "handle": "lau-tom-sen-dao-5a-nguyen-thi-dinh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-24-tong-dan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "swad-kitchen-7-luong-van-can",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 8
+            }
+        ]
+    },
+    {
+        "handle": "cai-mam-bistro-5-luong-van-can",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 8
+            }
+        ]
+    },
+    {
+        "handle": "bep-phuong-hong-171-quan-nam",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "emm-s-french-bistro-28-do-quang",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "matsuri-japanese-restaurant-3-5-7-nguyen-hue",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "minori-kdt-vinhomes-riverside",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI SỰ KIỆN (Áp dụng với Khách đặt bàn trước tại PATO) ."
+            }
+        ]
+    },
+    {
+        "handle": "luk-chew-hongkong-cha-chaan-teng-183-phung-hung",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "quan-ca-phien-hoan-viet-tri-ngo-1-mac-thai-tong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "nieu-quan-67-phan-ke-binh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "takailao-taiwanese-hotpot-170-cong-quynh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Thu"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "kujaku-sushi-29-nguyen-quy-canh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "king-sushi-lau-48-ngo-10-nguyen-thi-dinh",
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: TẶNG MAKI TỔNG HỢP (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "king-sushi-lau-6-khuc-thua-du",
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: TẶNG MAKI TỔNG HỢP (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "king-sushi-lau-63-nguyen-dinh-chieu",
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: TẶNG MAKI TỔNG HỢP (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "sushibar-120-trung-hoa",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "sushibar-tttm-syrena-xuan-dieu",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "sushibar-tttm-iph-xuan-thuy",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "sushibar-26-nguyen-van-loc",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-48-thai-phien",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-tttm-vincom-plaza-ngo-quyen",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-tuan-75-khuc-thua-du",
+        "guest_count_rules": [
+            {
+                "min": 10,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI TRANG TRÍ (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-4-tran-quoc-toan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-43-binh-minh-5",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-183-nguyen-van-thoai",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-tttm-giga-mall-thu-duc",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-219-phan-xich-long",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-95-cao-thang",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-tttm-aeon-mall-binh-tan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-112-trung-hoa",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "thai-market-restaurant-35-le-van-thiem",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Tue",
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 11
+            },
+            {
+                "date": [
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 12
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-175-tay-son",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-27-huynh-thuc-khang",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-17t4-hoang-dao-thuy",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "lau-nam-gia-khanh-12b-ct5-song-da",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "1977-beer-178-nguyen-van-tuyet",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: VOUCHER GIẢM GIÁ (Áp dụng cho khách đặt bàn trước tại PATO)"
+            },
+            {
+                "min": 20,
+                "max": 999,
+                "discount_id": 3,
+                "discount_description": "ƯU ĐÃI 3: KHUYẾN MÃI SỰ KIỆN (Áp dụng cho khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "fu-rong-hua-17t9-nguyen-thi-thap",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "ngoi-vang-steak-kdt-duong-noi",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "tugi-house-91b-vo-thi-sau",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "paula-s-wines-mandarin-garden-hoang-minh-giam",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "minori-kdt-vinhomes-ocean-park",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI SỰ KIỆN (Áp dụng với Khách đặt bàn trước tại PATO) ."
+            }
+        ]
+    },
+    {
+        "handle": "quan-nho-35b-le-van-thiem",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY ĐẾN 10% (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "bia-sanh-dieu-30-luu-quang-vu",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 12,
+                "max": 999,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: KHUYẾN MÃI TẶNG MÓN (Áp dụng với Khách đặt bàn trước tại Pato)"
+            }
+        ]
+    },
+    {
+        "handle": "bia-sanh-dieu-183-nguyen-tuan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 12,
+                "max": 999,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: KHUYẾN MÃI TẶNG MÓN (Áp dụng với Khách đặt bàn trước tại Pato)"
+            }
+        ]
+    },
+    {
+        "handle": "saiko-sushi-104-hai-ba-trung",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "safodi-315-vu-tong-phan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 20,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 20% (Áp dụng cho các Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "lau-nam-gia-khanh-201-nguyen-tuan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "vuon-bia-ha-noi-540-duong-lang",
+        "guest_count_rules": [
+            {
+                "min": 20,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI SỰ KIỆN (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "sarang-113-xuan-phuong",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI SINH NHẬT (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "hai-san-thu-rung-cua-xanh-27-nguyen-chanh",
+        "guest_count_rules": [
+            {
+                "min": 25,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 30,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 30% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            },
+            {
+                "min": 10,
+                "max": 999,
+                "discount_id": 2,
+                "percentage": 20,
+                "discount_description": "ƯU ĐÃI 2: ƯU ĐÃI ĐẶC BIỆT (Áp dụng với Khách đặt bàn trước tại PATO)"
+            },
+            {
+                "min": 24,
+                "max": 999,
+                "discount_id": 3,
+                "discount_description": "ƯU ĐÃI 3: ƯU ĐÃI ĐẶC BIỆT (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "den-long-quan-2-thai-phien",
+        "guest_count_rules": [
+            {
+                "min": 10,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI ĐẶC BIỆT (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "tokyo-tantan-ramen-izakaya-12-nguyen-thi-dinh",
+        "guest_count_rules": [
+            {
+                "min": 10,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            },
+            {
+                "min": 5,
+                "max": 999,
+                "discount_id": 2,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 2: GIẢM NGAY 5% (Áp dụng với Khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "sin-quan-47-bat-dan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 42
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 34
+            },
+            {
+                "date": [
+                    "Wed",
+                    "Thu"
+                ],
+                "percentage": 26
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 27
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 27
+            }
+        ]
+    },
+    {
+        "handle": "gia-dinh-bb-103k1-giang-vo",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "1977-beer-225-trich-sai",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: VOUCHER GIẢM GIÁ (Áp dụng cho khách đặt bàn trước tại PATO)"
+            },
+            {
+                "min": 20,
+                "max": 999,
+                "discount_id": 3,
+                "discount_description": "ƯU ĐÃI 3: KHUYẾN MÃI SỰ KIỆN (Áp dụng cho khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "quan-nha-ta-24-mac-thai-tong",
+        "guest_count_rules": [
+            {
+                "min": 10,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI SỰ KIỆN (Áp dụng cho khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-aeon-mall-long-bien",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "the-gioi-hai-san-36-dien-bien-phu",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 50
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 5,
+                "discount_description": "ƯU ĐÃI 5: ƯU ĐÃI SINH NHẬT(Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "izakaya-yancha-579-kim-ma",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "izakaya-yancha-121-trieu-viet-vuong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "bo-nhung-dam-555-10-ngo-76-ngach-8-duy-tan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "bo-nhung-dam-555-106-ngo-12-nui-truc",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "lau-nam-gia-khanh-67-vu-pham-ham",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "bo-nhung-dam-275-275-277-279-to-hieu",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "quan-nho-118-nguyen-khanh-toan",
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 5,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY ĐẾN 10% (Áp dụng cho các khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "the-gioi-hai-san-18-tran-kim-xuyen",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 50
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 6,
+                "discount_description": "ƯU ĐÃI 6: ƯU ĐÃI SINH NHẬT(Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "the-gioi-hai-san-60-vu-trong-khanh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 50
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 6,
+                "discount_description": "ƯU ĐÃI 6: ƯU ĐÃI SINH NHẬT(Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "the-gioi-hai-san-75a-tran-hung-dao",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 50
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 6,
+                "discount_description": "ƯU ĐÃI 6: ƯU ĐÃI SINH NHẬT(Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "the-gioi-hai-san-99-me-tri",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 50
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 6,
+                "discount_description": "ƯU ĐÃI 6: ƯU ĐÃI SINH NHẬT(Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "lau-hoi-cosmos-tttm-d2-giang-vo",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "dac-san-de-re-song-duong-39-tran-kim-xuyen",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 30
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 2,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 2: GIẢM NGAY 10% (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            },
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 5,
+                "discount_description": "ƯU ĐÃI 5: ƯU ĐÃI SINH NHẬT (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "dac-san-de-re-song-duong-9-han-thuyen",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 30
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 8,
+                "max": 999,
+                "discount_id": 2,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 2: GIẢM NGAY 10% (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            },
+            {
+                "min": 6,
+                "max": 999,
+                "discount_id": 5,
+                "discount_description": "ƯU ĐÃI 5: ƯU ĐÃI SINH NHẬT (Áp dụng cho Khách đặt bàn trước qua PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "khoa-ngan-xua-va-nay-77-hai-ba-trung",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 25
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "hours": [
+                    "14:00-18:00"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-15-tran-hung-dao",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "cha-ca-hang-son-77-hao-nam",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 18
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 16
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 15
+            }
+        ]
+    },
+    {
+        "handle": "quan-ca-viet-tri-bt12a-04-kdt-an-hung",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "bia-68-tay-ho-45-dang-thai-mai",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "lau-cua-dong-685-685-lac-long-quan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 24,
+                "max": 999,
+                "discount_id": 2,
+                "discount_description": "ƯU ĐÃI 2: KHUYẾN MÃI SỰ KIỆN (Áp dụng cho khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "com-chay-nang-tam-79a-tran-hung-dao",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "com-nieu-singapore-kombo-c3-nguyen-co-thach",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "com-nieu-singapore-kombo-108a1-pham-ngoc-thach",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "com-nieu-singapore-kombo-60-le-van-thiem",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "com-nieu-singapore-kombo-46-tran-dai-nghia",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "com-nieu-singapore-kombo-30-nguyen-phong-sac",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "com-nieu-singapore-kombo-26-kim-dong",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "de-nhat-quan-2-ngo-20-lang-ha",
+        "guest_count_rules": [
+            {
+                "min": 10,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng cho khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "chau-giang-4-mac-thai-to",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "vua-ngan-24-tran-binh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "bo-nhung-dam-275-285-to-hieu",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "lau-duc-troc-728-truong-dinh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 21,
+                "max": 999,
+                "percentage": 8,
+                "discount_description": ""
+            },
+            {
+                "min": 21,
+                "max": 999,
+                "discount_description": ""
+            }
+        ]
+    },
+    {
+        "handle": "lau-duc-troc-61-nguyen-van-tuyet",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 21,
+                "max": 999,
+                "percentage": 8,
+                "discount_description": ""
+            },
+            {
+                "min": 21,
+                "max": 999,
+                "discount_description": ""
+            }
+        ]
+    },
+    {
+        "handle": "highway4-575-kim-ma",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "lau-nuong-wang-wang-30-ho-tung-mau",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "lau-duc-troc-100-dich-vong-hau",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ],
+        "guest_count_rules": [
+            {
+                "min": 21,
+                "max": 999,
+                "percentage": 8,
+                "discount_description": ""
+            },
+            {
+                "min": 21,
+                "max": 999,
+                "discount_description": ""
+            }
+        ]
+    },
+    {
+        "handle": "ca-gio-vien-dong-531-bach-dang",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "acacias-47-linh-lang",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "giang-dung-46-25-tho-quan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    },
+    {
+        "handle": "chifan-71-trung-hoa",
+        "guest_count_rules": [
+            {
+                "min": 3,
+                "max": 999,
+                "discount_id": 1,
+                "discount_description": "ƯU ĐÃI 1: KHUYẾN MÃI TẶNG MÓN (Áp dụng cho khách đặt bàn trước tại PATO)"
+            }
+        ]
+    },
+    {
+        "handle": "ham-ruou-vang-huyen-thu-6a-ton-that-thuyet",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "ham-ruou-vang-huyen-thu-8d-ham-long",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 20
+            }
+        ]
+    },
+    {
+        "handle": "manpukutei-26-dao-tan",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            },
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 5
+            }
+        ]
+    },
+    {
+        "handle": "king-dakgalbi-22-nguyen-chi-thanh",
+        "guest_count_rules": [
+            {
+                "min": 4,
+                "max": 999,
+                "discount_id": 1,
+                "percentage": 10,
+                "discount_description": "ƯU ĐÃI 1: GIẢM NGAY 10% (Áp dụng cho Khách đặt bàn trước qua PATO )"
+            }
+        ]
+    },
+    {
+        "handle": "son-ca-24-lac-chinh",
+        "time_rules": [
+            {
+                "date": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri",
+                    "Sat",
+                    "Sun"
+                ],
+                "percentage": 10
+            }
+        ]
+    }
+]
