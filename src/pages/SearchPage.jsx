@@ -69,9 +69,10 @@ export default function SearchPage() {
   const province = searchParams.get('province') || ''
   const district = searchParams.get('district') || ''
   const sort = searchParams.get('sort') || 'default'
+  const nlKeywords = searchParams.getAll('nlkw')
 
   const hasFilters = !!(q.trim() || cuisines.length || services.length || prices.length ||
-    discount || province || district || purposes.length || amenities.length)
+    discount || province || district || purposes.length || amenities.length || nlKeywords.length)
 
   const districts = useMemo(() => {
     if (!province) return []
@@ -104,9 +105,20 @@ export default function SearchPage() {
         try { rAm = JSON.parse(r.amenities || '{}') } catch { /* ignore */ }
         if (!amenities.every(a => rAm[a] === true)) return false
       }
+      if (nlKeywords.length) {
+        const searchText = `${r.title} ${r.description || ''}`.toLowerCase()
+        const matchesKeywords = nlKeywords.some(kw => {
+          if (searchText.includes(kw)) return true
+          const words = kw.split(/\s+/).filter(w => w.length >= 2)
+          if (!words.length) return false
+          const matched = words.filter(w => searchText.includes(w)).length
+          return matched >= Math.ceil(words.length * 0.6)
+        })
+        if (!matchesKeywords) return false
+      }
       return true
     })
-  }, [q, restaurants, cuisines, services, prices, discount, province, district, purposes, amenities])
+  }, [q, restaurants, cuisines, services, prices, discount, province, district, purposes, amenities, nlKeywords])
 
   const results = useMemo(() => {
     const arr = [...filtered]
@@ -156,7 +168,7 @@ export default function SearchPage() {
 
   function applyNlFilters(filters, label) {
     const p = new URLSearchParams(searchParams)
-    ;['cuisine', 'service', 'price', 'purpose', 'amenity'].forEach(k => p.delete(k))
+    ;['cuisine', 'service', 'price', 'purpose', 'amenity', 'nlkw'].forEach(k => p.delete(k))
     p.delete('province')
     p.delete('district')
     if (filters.cuisine) filters.cuisine.forEach(v => p.append('cuisine', v))
@@ -166,6 +178,7 @@ export default function SearchPage() {
     if (filters.amenity) filters.amenity.forEach(v => p.append('amenity', v))
     if (filters.province) p.set('province', filters.province)
     if (filters.district) p.set('district', filters.district)
+    if (filters.keywords) filters.keywords.forEach(v => p.append('nlkw', v))
     setSearchParams(p)
     setNlLabel(label || '')
   }

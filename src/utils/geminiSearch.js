@@ -64,12 +64,14 @@ Các giá trị hợp lệ:
 - amenity (mảng, chọn từ danh sách): ${AMENITY_OPTIONS.join(", ")}
 - province (chuỗi, chọn từ danh sách): ${provinces.join(", ")}
 - district (chuỗi): tên quận/huyện cụ thể trong tỉnh đã chọn
+- keywords (mảng chuỗi): tên món ăn, nguyên liệu, hoặc từ khóa cụ thể cần tìm trong tên/mô tả nhà hàng. Tách thành các cụm ngắn nhất có nghĩa (2-3 từ). Ví dụ: ["lợn rừng"], ["dê núi"], ["bún bò Huế"], ["hải sản tươi sống"]. KHÔNG đưa vào các từ chung như "nhà hàng", "quán", "có", "ăn", "món".
 
 Quy tắc:
 - Chỉ trả về JSON thuần túy, không có markdown, không giải thích
 - Chỉ thêm trường nếu câu truy vấn đề cập đến (bỏ qua trường không liên quan)
 - Dùng đúng giá trị từ danh sách, không tự bịa
-- Ví dụ: {"cuisine":["Món Việt"],"purpose":["Ăn gia đình"],"province":"Hà Nội"}
+- cuisine chỉ được đặt khi người dùng nói rõ thể loại ẩm thực ("đồ Nhật", "Món Việt"...), KHÔNG suy diễn từ tên món ăn hay nguyên liệu cụ thể
+- Ví dụ: {"cuisine":["Món Việt"],"purpose":["Ăn gia đình"],"province":"Hà Nội","keywords":["lợn rừng"]}
 
 Câu truy vấn: "${query}"`;
 }
@@ -104,6 +106,12 @@ function validate(raw, provinces) {
   }
   if (typeof raw.district === "string" && raw.district.trim()) {
     result.district = raw.district.trim();
+  }
+  if (Array.isArray(raw.keywords)) {
+    const valid = raw.keywords
+      .filter((k) => typeof k === "string" && k.trim())
+      .map((k) => k.trim().toLowerCase());
+    if (valid.length) result.keywords = valid;
   }
 
   return result;
