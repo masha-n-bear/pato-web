@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import posthog from 'posthog-js';
 import useAuthStore from '../authStore';
@@ -34,6 +34,19 @@ export default function BookingWidget({ restaurant }) {
   const [form, setForm] = useState({ name: user?.displayName || '', phone: '', note: '' });
   const [status, setStatus] = useState('idle');
   const [booking, setBooking] = useState(null);
+
+  const [discounts, setDiscounts] = useState([]);
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/discounts.json`)
+      .then(res => res.json())
+      .then(setDiscounts)
+      .catch(() => {});
+  }, []);
+
+  const discountRule = discounts.find(d => d.handle === restaurant.handle);
+  const matchingGuestRules = discountRule?.guest_count_rules?.filter(
+    rule => guests >= rule.min && guests <= rule.max
+  ) ?? null;
 
   const timeSlots = useMemo(
     () => selectedDate ? generateTimeSlots(restaurant.opening_hours, selectedDate) : [],
@@ -187,10 +200,18 @@ export default function BookingWidget({ restaurant }) {
                 if (!dateStr) return <div key={`empty-${i}`} />;
                 const isPast = dateStr < today;
                 const isOpen = !isPast && isDateOpen(restaurant.opening_hours, dateStr);
-                const discountPct = isOpen && restaurant.discount
-                  ? (restaurant.discount_details || '').match(/^Giảm\s+(\d+)%$/i)
-                  : null;
-                const hasDiscount = !!discountPct;
+                let discountBadge = null;
+                if (isOpen) {
+                  if (discountRule?.time_rules) {
+                    const DAY_ABBR = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    const dayAbbr = DAY_ABBR[new Date(dateStr + 'T00:00:00').getDay()];
+                    const rule = discountRule.time_rules.find(r => r.date.includes(dayAbbr));
+                    if (rule) discountBadge = `-${rule.percentage}%`;
+                  } else if (restaurant.discount) {
+                    const m = (restaurant.discount_details || '').match(/^Giảm\s+(\d+)%$/i);
+                    if (m) discountBadge = `-${m[1]}%`;
+                  }
+                }
                 const isSelected = dateStr === selectedDate;
                 return (
                   <div
@@ -204,7 +225,7 @@ export default function BookingWidget({ restaurant }) {
                     onClick={() => selectDate(dateStr)}
                   >
                     <span>{new Date(dateStr + 'T00:00:00').getDate()}</span>
-                    {hasDiscount && <div className="bw-discount-badge">-{discountPct[1]}%</div>}
+                    {discountBadge && <div className="bw-discount-badge">{discountBadge}</div>}
                   </div>
                 );
               })}
@@ -225,7 +246,7 @@ export default function BookingWidget({ restaurant }) {
               ) : (
                 <div className="bw-time-grid">
                   {timeSlots.map(t => {
-                    const disc = getSlotDiscount(restaurant, selectedDate, t);
+                    const disc = getSlotDiscount(restaurant, selectedDate, t, discountRule);
                     return (
                       <button
                         key={t}
@@ -243,21 +264,26 @@ export default function BookingWidget({ restaurant }) {
           )}
 
           {/* Guest count */}
-          {selectedDate && (
-            <div className="bw-guests-section">
-              <div className="bw-section-label">Số khách</div>
-              <div className="bw-guests-row">
-                <button onClick={() => setGuests(g => Math.max(1, g - 1))}>−</button>
-                <span>{guests} người</span>
-                <button onClick={() => setGuests(g => Math.min(100, g + 1))}>+</button>
-              </div>
+          <div className="bw-guests-section">
+            <div className="bw-section-label">Số khách</div>
+            <div className="bw-guests-row">
+              <button onClick={() => setGuests(g => Math.max(1, g - 1))}>−</button>
+              <span>{guests} người</span>
+              <button onClick={() => setGuests(g => Math.min(100, g + 1))}>+</button>
             </div>
-          )}
-
-
-          <div className="bw-urgency">
-            Đặt ngay để giữ chỗ!
           </div>
+
+
+          {discountRule?.guest_count_rules
+            ? matchingGuestRules.length > 0 && (
+                <div className="bw-urgency">
+                  {matchingGuestRules.map((rule, i) => (
+                    <div key={i}>{rule.discount_description}</div>
+                  ))}
+                </div>
+              )
+            : <div className="bw-urgency">Đặt ngay để giữ chỗ!</div>
+          }
 
           <button
             className="bw-next-btn"

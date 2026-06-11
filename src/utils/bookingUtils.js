@@ -64,10 +64,28 @@ export function generateTimeSlots(openingHours, dateStr) {
   return allSlots;
 }
 
+function timeInRange(timeStr, rangeStr) {
+  const [h, m] = timeStr.split(':').map(Number);
+  const slot = h * 60 + m;
+  const parts = rangeStr.split('-');
+  const [sh, sm] = parts[0].split(':').map(Number);
+  const [eh, em] = parts[1].split(':').map(Number);
+  return slot >= sh * 60 + sm && slot < eh * 60 + em;
+}
+
+const DAY_ABBR = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 // Returns the discount label for a given time slot, or null if none
-export function getSlotDiscount(restaurant, dateStr, timeStr) {
+export function getSlotDiscount(restaurant, dateStr, timeStr, discountRule) {
+  if (discountRule?.time_rules) {
+    const dayAbbr = DAY_ABBR[new Date(dateStr + 'T00:00:00').getDay()];
+    const rule = discountRule.time_rules.find(r =>
+      r.date.includes(dayAbbr) && r.hours.some(h => timeInRange(timeStr, h))
+    );
+    return rule ? `-${rule.percentage}%` : null;
+  }
+  // Fallback for restaurants not in discounts.json
   if (!restaurant.discount || !restaurant.discount_details) return null;
-  // Lunch discount window: 10:00 – 14:30
   const [h] = timeStr.split(':').map(Number);
   if (h >= 10 && h < 15) return restaurant.discount_details;
   return null;
