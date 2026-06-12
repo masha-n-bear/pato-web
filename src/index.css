@@ -269,10 +269,30 @@ textarea {
     color: var(--brand);
 }
 
+.card-rating-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3px 0;
+}
+
+.card-rating-badge {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 0 4px;
+}
+
 .tag-location {
     font-size: 12px;
     color: var(--text-secondary);
-    margin: 3px 0;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;

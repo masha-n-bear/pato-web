@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import posthog from "posthog-js";
 import SaveButton from "./SaveButton";
-import { bookedTodayCount } from "../utils/hashUtils";
+import { bookedTodayCount, getRestaurantRating } from "../utils/hashUtils";
 
 const PRICE_LABELS = {
   1: "< 200.000 VND/người",
@@ -16,6 +16,12 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
   const r = restaurant;
   const priceLabel = PRICE_LABELS[r.price_range] || "";
   const bookedCount = bookedTodayCount(r.handle);
+  const rating = getRestaurantRating(r.handle);
+  const ratingColor = rating >= 9 ? '#2ecc71' : rating >= 8 ? '#27ae60' : rating >= 7 ? '#f39c12' : '#e74c3c';
+  const addressParts = r.address ? r.address.split(',').map(s => s.trim()) : [];
+  const shortAddress = addressParts.length >= 2
+    ? addressParts.slice(-2).join(', ')
+    : r.address;
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -63,7 +69,12 @@ export default function RestaurantCard({ restaurant, section = "unknown" }) {
             {r.title}
           </Link>
         </div>
-        <div className="tag-location">{r.address}</div>
+        <div className="card-rating-row">
+          <span className="tag-location">{shortAddress}</span>
+          <span className="card-rating-badge" style={{ background: ratingColor }}>
+            {rating.toFixed(1)}
+          </span>
+        </div>
         <div className="product-detail-type">
           <div className="product-type">
             {r.cuisine_all?.slice(0, 2).map((c) => (
