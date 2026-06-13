@@ -109,10 +109,17 @@ export default function SearchPage() {
         const searchText = `${r.title} ${r.description || ''}`.toLowerCase()
         const matchesKeywords = nlKeywords.some(kw => {
           if (searchText.includes(kw)) return true
-          const words = kw.split(/\s+/).filter(w => w.length >= 2)
-          if (!words.length) return false
-          const matched = words.filter(w => searchText.includes(w)).length
-          return matched >= Math.ceil(words.length * 0.6)
+          // Bigram fallback: only form pairs where both words are ≥ 3 chars.
+          // This prevents short Vietnamese words like "bò"(2) or "bộ"(2) from
+          // creating spurious bigrams (e.g. "bún bò nam bộ" → no eligible bigrams,
+          // so only exact-phrase matches). Handles "thịt lợn rừng" → "lợn rừng" ✓
+          const words = kw.split(/\s+/)
+          for (let i = 0; i < words.length - 1; i++) {
+            if (words[i].length >= 3 && words[i + 1].length >= 3) {
+              if (searchText.includes(words[i] + ' ' + words[i + 1])) return true
+            }
+          }
+          return false
         })
         if (!matchesKeywords) return false
       }
