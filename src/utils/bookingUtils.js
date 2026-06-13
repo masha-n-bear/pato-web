@@ -80,7 +80,7 @@ export function getSlotDiscount(restaurant, dateStr, timeStr, discountRule) {
   if (discountRule?.time_rules) {
     const dayAbbr = DAY_ABBR[new Date(dateStr + 'T00:00:00').getDay()];
     const rule = discountRule.time_rules.find(r =>
-      r.date.includes(dayAbbr) && r.hours.some(h => timeInRange(timeStr, h))
+      r.date.includes(dayAbbr) && (!r.hours || r.hours.some(h => timeInRange(timeStr, h)))
     );
     return rule ? `-${rule.percentage}%` : null;
   }

@@ -284,6 +284,30 @@
   font-weight: 600;
 }
 
+/* ── No-discount notice ── */
+.bw-no-discount {
+  margin-top: 14px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #6c757d;
+  line-height: 1.6;
+}
+.bw-no-discount-title {
+  font-weight: 700;
+  color: #495057;
+  margin-bottom: 6px;
+}
+.bw-no-discount-label {
+  font-weight: 600;
+  color: #868e96;
+  margin-bottom: 2px;
+}
+.bw-no-discount-row { padding-left: 4px; }
+.bw-no-discount-req { font-weight: 600; color: #e67e22; }
+
 /* ── Next button ── */
 .bw-next-btn {
   width: 100%;

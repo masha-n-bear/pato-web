@@ -107,21 +107,7 @@ export default function SearchPage() {
       }
       if (nlKeywords.length) {
         const searchText = `${r.title} ${r.description || ''}`.toLowerCase()
-        const matchesKeywords = nlKeywords.some(kw => {
-          if (searchText.includes(kw)) return true
-          // Bigram fallback: only form pairs where both words are ≥ 3 chars.
-          // This prevents short Vietnamese words like "bò"(2) or "bộ"(2) from
-          // creating spurious bigrams (e.g. "bún bò nam bộ" → no eligible bigrams,
-          // so only exact-phrase matches). Handles "thịt lợn rừng" → "lợn rừng" ✓
-          const words = kw.split(/\s+/)
-          for (let i = 0; i < words.length - 1; i++) {
-            if (words[i].length >= 3 && words[i + 1].length >= 3) {
-              if (searchText.includes(words[i] + ' ' + words[i + 1])) return true
-            }
-          }
-          return false
-        })
-        if (!matchesKeywords) return false
+        if (!nlKeywords.some(kw => searchText.includes(kw))) return false
       }
       return true
     })

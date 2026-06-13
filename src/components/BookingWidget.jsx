@@ -5,6 +5,16 @@ import useAuthStore from '../authStore';
 import { generateTimeSlots, isDateOpen, getSlotDiscount, getCalendarDates } from '../utils/bookingUtils';
 import './BookingWidget.css';
 
+function formatGuestReq(rule) {
+  if (rule.max >= 999) return `Từ ${rule.min} người trở lên`;
+  return `Từ ${rule.min}–${rule.max} người`;
+}
+
+function shortTitle(desc) {
+  // "ƯU ĐÃI 1: GIẢM NGAY 30% (Áp dụng ...)" → "ƯU ĐÃI 1: GIẢM NGAY 30%"
+  return (desc || '').replace(/\s*\(.*$/, '').trim();
+}
+
 const GOOGLE_ENDPOINT =
   'https://script.google.com/macros/s/AKfycbzNPX30oeXZABNv3Q04xciy-HegV4gJp3Ie14ynkNFLbaheGY_MXADADallmqLPOn1oTQ/exec';
 
@@ -275,13 +285,28 @@ export default function BookingWidget({ restaurant }) {
 
 
           {discountRule?.guest_count_rules
-            ? matchingGuestRules.length > 0 && (
-                <div className="bw-urgency">
-                  {matchingGuestRules.map((rule, i) => (
-                    <div key={i}>{rule.discount_description}</div>
-                  ))}
-                </div>
-              )
+            ? matchingGuestRules.length > 0
+              ? (
+                  <div className="bw-urgency">
+                    {matchingGuestRules.map((rule, i) => (
+                      <div key={i}>{rule.discount_description}</div>
+                    ))}
+                  </div>
+                )
+              : (
+                  <div className="bw-no-discount">
+                    <div className="bw-no-discount-title">
+                      Nhóm {guests} người chưa đủ điều kiện nhận ưu đãi theo số khách.
+                    </div>
+                    <div className="bw-no-discount-label">Ưu đãi có sẵn:</div>
+                    {discountRule.guest_count_rules.map((rule, i) => (
+                      <div key={i} className="bw-no-discount-row">
+                        <span className="bw-no-discount-req">{formatGuestReq(rule)}</span>
+                        {' — '}{shortTitle(rule.discount_description)}
+                      </div>
+                    ))}
+                  </div>
+                )
             : <div className="bw-urgency">Đặt ngay để giữ chỗ!</div>
           }
 
